@@ -37,7 +37,7 @@
   display: flex;
   justify-content: right;
   align-items: center;
-  background-color: white;
+  background-color: inherit;
   margin: 0;
 }
 

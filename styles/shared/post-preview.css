@@ -95,6 +95,7 @@
   position: relative;
   z-index: 1; /* Ensure it's on top */
   height: 100%; /* Ensure it fills the parent vertically */
+  cursor: pointer;
 }
 
 /* White-space inside the direct-to-post anchor tag */
