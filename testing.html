@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive 3-dot Settings</title>
+    <style>
+
+      body {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+        /* Container for the 3-dot button and the options menu */
+        .post-setting {
+            position: relative;
+            display: inline-block;
+        }
+
+        /* 3-dot icon (represented by a simple button here) */
+        .post-setting-icon {
+            width: 35px;
+            height: 35px;
+            background-color: #f1f1f1;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            font-size: 20px;
+            border: none;
+        }
+
+        /* Initially hidden options menu */
+        .options-menu {
+            display: none;
+            position: absolute;
+            top: 40px; /* Adjusts the vertical position of the menu */
+            right: 0;
+            background-color: #ffffff;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            width: 150px;
+            box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+            z-index: 10;
+        }
+
+        /* Menu items (Save, Hide, Report) */
+        .options-menu a {
+            display: block;
+            padding: 10px;
+            text-decoration: none;
+            color: #333;
+            font-size: 14px;
+            border-bottom: 1px solid #ccc;
+        }
+
+        .options-menu a:last-child {
+            border-bottom: none;
+        }
+
+        .options-menu a:hover {
+            background-color: #f0f0f0;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="post-setting">
+        <!-- 3-dot settings button -->
+        <button class="post-setting-icon">...</button>
+
+        <!-- Pop-up menu with options -->
+        <div class="options-menu">
+            <a href="#" id="save-option">Save for later</a>
+            <a href="#" id="hide-option">Hide</a>
+            <a href="#" id="report-option">Report</a>
+        </div>
+    </div>
+
+    <script>
+        // Get elements
+        const postSettingButton = document.querySelector('.post-setting-icon');
+        const optionsMenu = document.querySelector('.options-menu');
+
+        // Toggle menu visibility on click
+        postSettingButton.addEventListener('click', function(event) {
+            // Prevent the default action (such as following a link)
+            event.stopPropagation();
+
+            // Toggle the display of the options menu
+            optionsMenu.style.display = optionsMenu.style.display === 'block' ? 'none' : 'block';
+        });
+
+        // Close the options menu if you click outside of it
+        document.addEventListener('click', function(event) {
+            if (!postSettingButton.contains(event.target)) {
+                optionsMenu.style.display = 'none';
+            }
+        });
+
+        // Option actions
+        document.getElementById('save-option').addEventListener('click', function() {
+            alert('Save for later clicked');
+            optionsMenu.style.display = 'none'; // Close the menu after action
+        });
+
+        document.getElementById('hide-option').addEventListener('click', function() {
+            alert('Hide clicked');
+            optionsMenu.style.display = 'none'; // Close the menu after action
+        });
+
+        document.getElementById('report-option').addEventListener('click', function() {
+            alert('Report clicked');
+            optionsMenu.style.display = 'none'; // Close the menu after action
+        });
+    </script>
+
+</body>
+</html>

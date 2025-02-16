@@ -1,0 +1,116 @@
+.header {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    height: 70px;
+    display: flex;
+    border-bottom: 1px solid rgb(209, 209, 209);
+    background-color: white;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 1px 3px 3px rgba(0, 0, 0, 0.05);
+    z-index: 100;
+}
+.left-section {
+    height: 50px;
+    margin-left: 18px;
+}
+
+.logo {
+    height: 100%;
+}
+
+
+
+.middle-section {
+    flex: 1;
+    margin-left: 100px;
+    margin-right: 80px;
+}
+
+.header-text {
+    font-size: 25px;
+    font-weight: bold;
+    white-space: nowrap;
+}
+
+
+
+.right-section {
+    width: 200px;
+    margin-right: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-right: 55px;
+}
+.create-button {
+    border-radius: 25px;
+    border: none;
+    background-color: rgb(240, 240, 240);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-inline: 15px;
+    padding-block: 3px;
+}
+.create-button:hover {
+    background-color: rgb(235, 235, 235);
+}
+.create-button:active {
+    background-color: rgb(226, 226, 226);
+}
+
+.create-button-text {
+    font-style: bold;
+}
+
+.create-image {
+    height: 30px;
+    margin-right: 15px;
+}
+
+
+.notifications-container {
+    width: 50px;
+    position: relative;
+    margin-inline: 20px;
+    border-radius: 28px;
+    background-color: white;
+    padding: 10px 13px;
+}
+.notifications-container .tooltip {
+    position: absolute;
+    background-color: rgb(70, 70, 70);
+    opacity: 0;
+    color: white;
+    padding-block: 4px;
+    padding-inline: 7px;
+    border-radius: 3px;
+    font-size: 12px;
+    bottom: -40px;
+    transition: 0.15s opacity;
+    white-space: nowrap;
+
+    pointer-events: none;
+}
+.notifications-container:hover .tooltip {
+    opacity: 0.8;
+}
+.notifications-container:hover {
+    background-color: rgb(235, 235, 235);
+}
+.notifications-container:active {
+    background-color: rgb(226, 226, 226);
+}
+.notifications-icon {
+    height: 30px;
+}
+
+
+.account-profile-picture {
+    height: 45px;
+    border-radius: 25px;
+}

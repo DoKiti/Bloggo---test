@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Bloggo</title>   
+        
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        
+        <link rel="stylesheet" href="styles/shared/general.css">
+        <link rel="stylesheet" href="styles/shared/header.css">
+        <link rel="stylesheet" href="styles/shared/sidebar.css">
+        <link rel="stylesheet" href="styles/shared/profile-summary.css">
+        <link rel="stylesheet" href="styles/shared/post-preview.css">
+        <link rel="stylesheet" href="styles/shared/like-dislike-shared.css">
+    </head>
+    <body>
+        <header class="header">
+            <div class="left-section">
+              <img class="logo" src="images/icons/logo.png">
+            </div>
+            <div class="middle-section">
+                <p class="header-text">
+                    Chat with others!
+                </p>
+            </div>
+            <div class="right-section">
+                <button class="create-button">
+                    <img class="create-image" src="images/icons/create.png">
+                    <p class="create-button-text">
+                        Create
+                    </p>
+                </button>                
+                <div class="notifications-container">
+                    <img class="notifications-icon" src="images/icons/notifications.svg">
+                    <div class="tooltip">
+                        Notifications
+                    </div>
+                </div>
+                <img class="account-profile-picture" src="images/icons/pfp.jpg">
+            </div>
+        </header>
+
+        <nav class="sidebar">
+          <a href="blog.html">
+              <div class="sidebar-button">
+                <img src="images/icons/home.png">
+                <p>
+                    Home
+                </p>
+            </div>
+          </a>
+          <div class="sidebar-button">
+              <img src="images/icons/saved.png">
+              <p>
+                  Saved
+              </p> 
+          </div>
+          <div class="sidebar-button">
+              <img src="images/icons/followed.png">
+              <p>
+                  Followed
+              </p>
+          </div>
+        </nav>
+
+        <main class="main-section">
+          <div class="profile-picture-and-other-information">
+            <div class="profile-picture-container">
+                <img class="profile-picture" src="images/profile-pictures/profile1.jpg">
+            </div>
+            <div class="other-information-container">
+              <p class="profile-nickname">
+                Dokii
+              </p>
+              <p class="profile-username">
+                @doki_is_the_usn
+              </p>
+              <p class="profile-bio">
+                Passionate about technology, design, and creativity, I share insights on the latest trends, personal growth, and digital innovations. Join me on a journey of exploration and inspiration!
+              </p>
+            </div>
+          </div>
+
+          
+          <div class="others-posts">
+            <div class="latest-post-text-container">
+                <p>
+                    Latest Blogs from Dokii
+                </p>
+            </div>
+            <div class="post-container-preview">
+                <div class="top-of-post-preview">
+                    <a href="others-profile.html">
+                        <div class="profile-picture-and-author-name-preview">
+                            <img class="author-profile-picture-preview" src="images/profile-pictures/profile1.jpg">
+                            <p class="author-name">
+                                NAME2
+                            </p>
+                        </div>
+                    </a>
+
+                    <a class="direct-to-post" href="post.html">
+                        <div class="white-space"></div>
+                    </a>
+
+                    <div class="post-setting">
+                        <img class="post-setting-icon" src="images/icons/3-dots.png">
+                        <div class="options-menu">
+                            <a href="#" id="save-option">Save for later</a>
+                            <a href="#" id="hide-option">Hide</a>
+                            <a href="#" id="report-option">Report</a>
+                        </div>
+                    </div>
+                </div>
+                <a class="direct-to-post" href="post.html">
+                    <div class="post-title-container-preview">
+                        <p class="post-title-preview">
+                            Yey I finally did it, it took me so long but i did it. Yey I finally did it, it took me so long but i did it. Yey I finally did it, it took me so long but i did it
+                        </p>
+                    </div>
+                    <div class="main-part-of-the-post-preview">
+                        <p class="post-preview-text">
+                            In today’s fast-paced society, where everything is moving at lightning speed, it’s easy to get caught up in the hustle. The constant pressure to be productive can often lead to stress, burnout, and a sense of disconnection. Mindful living, however, offers a refreshing approach to life. It’s about taking a step back, slowing down, and being present in the moment. Whether through meditation, mindful eating, or simply taking time for a walk, practicing mindfulness can help us reconnect with ourselves, improve our mental well-being, and cultivate a more peaceful and fulfilling life. In today’s fast-paced society, where everything is moving at lightning speed, it’s easy to get caught up in the hustle. The constant pressure to be productive can often lead to stress, burnout, and a sense of disconnection. Mindful living, however, offers a refreshing approach to life. It’s about taking a step back, slowing down, and being present in the moment. Whether through meditation, mindful eating, or simply taking time for a walk, practicing mindfulness can help us reconnect with ourselves, improve our mental well-being, and cultivate a more peaceful and fulfilling life.
+                        </p>
+                    </div>
+                </a>
+                <div class="post-preview-ratings">
+                    <a class="direct-to-post" href="post.html">
+                        <div class="white-space"></div>
+                    </a>
+                    <div class="liked-container">
+                        <img src="images/icons/like-button.png">
+                        <p>
+                            221
+                        </p>
+                    </div>
+                    <div class="disliked-container">
+                        <img src="images/icons/dislike-button.png">
+                        <p>
+                            2
+                        </p>
+                    </div>
+                    <div class="saved-container">
+                        <img src="images/icons/saved.png">
+                        <p>
+                            99
+                        </p>
+                    </div>
+                    <div class="comments-container">
+                      <img src="images/icons/comments.png">
+                      <p>
+                          12
+                      </p>
+                  </div>
+                </div>
+            </div> 
+          </div>
+        </main>
+
+
+
+        <!-- JUST A WIP -->
+        <script>
+            // Get elements
+            const postSettingButton = document.querySelector('.post-setting-icon');
+            const optionsMenu = document.querySelector('.options-menu');
+    
+            // Toggle menu visibility on click
+            postSettingButton.addEventListener('click', function(event) {
+                // Prevent the default action (such as following a link)
+                event.stopPropagation();
+    
+                // Toggle the display of the options menu
+                optionsMenu.style.display = optionsMenu.style.display === 'block' ? 'none' : 'block';
+            });
+    
+            // Close the options menu if you click outside of it
+            document.addEventListener('click', function(event) {
+                if (!postSettingButton.contains(event.target)) {
+                    optionsMenu.style.display = 'none';
+                }
+            });
+    
+            // Option actions
+            document.getElementById('save-option').addEventListener('click', function() {
+                alert('Save for later clicked');
+                optionsMenu.style.display = 'none'; // Close the menu after action
+            });
+    
+            document.getElementById('hide-option').addEventListener('click', function() {
+                alert('Hide clicked');
+                optionsMenu.style.display = 'none'; // Close the menu after action
+            });
+    
+            document.getElementById('report-option').addEventListener('click', function() {
+                alert('Report clicked');
+                optionsMenu.style.display = 'none'; // Close the menu after action
+            });
+        </script>
+    </body>
+</html>

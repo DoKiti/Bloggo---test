@@ -1,0 +1,71 @@
+.sidebar {
+    position: fixed;
+    top: 70px;
+    width: 185px;
+    left: 0;
+    bottom: 0;
+    background-color: rgb(255, 255, 255);
+    padding: 5px;
+    border: 0px solid rgb(209, 209, 209);
+    border-right-width: 1px;
+    box-sizing: border-box;  /* Ensures padding is considered in the element's width */
+    border-bottom: 10px;
+    z-index: 200;
+}
+
+.sidebar-button {
+    height: 80px; 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;  /* Add some margin from the top */
+    padding: 5px;
+}
+
+@media (max-width: 1000px) {
+    .sidebar {
+        width: 125px;
+    }
+    .sidebar-button {
+        height: 60px;
+    }
+}
+
+@media (max-width: 700px) {
+    .sidebar {
+        width: 95px;
+    }
+    .sidebar-button {
+        height: 50px;
+    }
+}
+
+@media (max-width: 450px) {
+    .sidebar {
+        width: 65px;
+    }
+    .sidebar-button {
+        height: 30px;
+    }
+}
+
+
+
+.sidebar-button:hover {
+    background-color: rgb(243, 240, 240);
+    cursor: pointer;
+    border-radius: 12px;
+}
+
+.sidebar-button img {
+    height: 50%;
+    margin-bottom: 4px;  /* Space between the image and the text */
+}
+
+.sidebar-button p {
+    font-size: 100%;                                            
+    font-weight: 500;
+    text-align: center;  /* Center the text */
+    margin: 0;  /* Remove any default margin */
+}
