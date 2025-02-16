@@ -15,7 +15,6 @@ function getPostById(postId) {
 
 function displayPostDetails(post) {
   // Log to ensure elements exist
-  console.log('Post:', post);
 
   const postTitleElement = document.querySelector('.post-title');
   const postTextElement = document.querySelector('.post-texts');
@@ -23,9 +22,9 @@ function displayPostDetails(post) {
   const postDislikesElement = document.querySelector('.dislikes');
   const postSavesElement = document.querySelector('.saves');
   const postCommentsElement = document.querySelector('.comments');
+  const profilePictureElement = document.querySelector('.js-profile-picture')
 
   // Log to confirm the elements
-  console.log(postTitleElement, postTextElement, postLikesElement);
 
   // Injecting post data into the page
   postTitleElement.textContent = post.postTitle;
@@ -34,6 +33,7 @@ function displayPostDetails(post) {
   postDislikesElement.innerHTML = post.ratings.dislikes;
   postSavesElement.innerHTML = post.ratings.saves;
   postCommentsElement.innerHTML = post.ratings.comments;
+  profilePictureElement.src = post.authorProfilePicture;
 }
 
 
@@ -46,6 +46,6 @@ document.addEventListener('DOMContentLoaded', () => {
     displayPostDetails(post);
   } else {
     // If no post is found with that ID, display an error or a 404 message
-    document.querySelector('.post-container').innerHTML = '<p>Post not found!</p>';
+    document.querySelector('.main-section').innerHTML = '<p>Post not found!</p>';
   }
 });

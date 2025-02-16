@@ -23,7 +23,7 @@
 
 .profile-picture-and-author-name-preview {
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   padding-block: 5px;
   padding-right: 5px;
@@ -89,8 +89,7 @@
 
 
 /* Ensure the anchor tag fills its parent, no need for height */
-.direct-to-post {
-  display: block;
+.directory {
   width: 100%;
   position: relative;
   z-index: 1; /* Ensure it's on top */
@@ -98,7 +97,7 @@
   cursor: pointer;
 }
 
-/* White-space inside the direct-to-post anchor tag */
+/* White-space inside the directory anchor tag */
 .white-space {
   flex: 1; /* Take up available space */
   background-color: rebeccapurple; /* No background */

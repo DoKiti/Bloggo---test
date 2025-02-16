@@ -14,7 +14,7 @@ class User {
   }
 }
 
-users = [
+export let users = [
   {
     userId: '1',
     username: 'Doki_is_the_usn',
