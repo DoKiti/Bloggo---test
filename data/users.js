@@ -1,10 +1,9 @@
 users = [
   {
-    userId: '',
-    username: 'username1',
-    profilePicture: 'image1',
-    posts: {
-      /* IN PROGRESS */
-    }
+    userId: '1',
+    username: 'Doki_is_the_usn',
+    nickname: 'Dokii',
+    profilePicture: '../images/profile-pictures/profile1',
+    posts: ["8888881", "8888882"]
   }
 ]

@@ -1,120 +1,134 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Interactive 3-dot Settings</title>
-    <style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Create a Post</title>
+  <style>
+    /* Basic styles for the form and posts */
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f0f0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 20px;
+    }
 
-      body {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      }
-        /* Container for the 3-dot button and the options menu */
-        .post-setting {
-            position: relative;
-            display: inline-block;
-        }
+    .post-container {
+      width: 100%;
+      max-width: 600px;
+      margin-top: 20px;
+    }
 
-        /* 3-dot icon (represented by a simple button here) */
-        .post-setting-icon {
-            width: 35px;
-            height: 35px;
-            background-color: #f1f1f1;
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            cursor: pointer;
-            font-size: 20px;
-            border: none;
-        }
+    .post-form {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      margin-bottom: 20px;
+    }
 
-        /* Initially hidden options menu */
-        .options-menu {
-            display: none;
-            position: absolute;
-            top: 40px; /* Adjusts the vertical position of the menu */
-            right: 0;
-            background-color: #ffffff;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            width: 150px;
-            box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
-            z-index: 10;
-        }
+    textarea {
+      padding: 10px;
+      font-size: 16px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      min-height: 100px;
+    }
 
-        /* Menu items (Save, Hide, Report) */
-        .options-menu a {
-            display: block;
-            padding: 10px;
-            text-decoration: none;
-            color: #333;
-            font-size: 14px;
-            border-bottom: 1px solid #ccc;
-        }
+    button {
+      margin-top: 10px;
+      padding: 10px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
 
-        .options-menu a:last-child {
-            border-bottom: none;
-        }
+    button:disabled {
+      background-color: grey;
+      cursor: not-allowed;
+    }
 
-        .options-menu a:hover {
-            background-color: #f0f0f0;
-        }
-    </style>
+    .post {
+      background-color: white;
+      padding: 15px;
+      margin: 10px 0;
+      border-radius: 5px;
+      border: 1px solid #ddd;
+    }
+
+  </style>
 </head>
 <body>
 
-    <div class="post-setting">
-        <!-- 3-dot settings button -->
-        <button class="post-setting-icon">...</button>
+  <h1>Create a New Post</h1>
 
-        <!-- Pop-up menu with options -->
-        <div class="options-menu">
-            <a href="#" id="save-option">Save for later</a>
-            <a href="#" id="hide-option">Hide</a>
-            <a href="#" id="report-option">Report</a>
-        </div>
-    </div>
+  <!-- Post Form -->
+  <div class="post-form">
+    <textarea id="postContent" placeholder="Write something..." rows="4"></textarea>
+    <button id="createPostBtn" disabled>Create Post</button>
+  </div>
 
-    <script>
-        // Get elements
-        const postSettingButton = document.querySelector('.post-setting-icon');
-        const optionsMenu = document.querySelector('.options-menu');
+  <!-- Post Display -->
+  <div class="post-container" id="postContainer">
+    <!-- Posts will appear here -->
+  </div>
 
-        // Toggle menu visibility on click
-        postSettingButton.addEventListener('click', function(event) {
-            // Prevent the default action (such as following a link)
-            event.stopPropagation();
+  <script>
+    // Function to display posts on the page
+    function displayPosts() {
+      const postContainer = document.getElementById('postContainer');
+      const posts = JSON.parse(localStorage.getItem('posts')) || []; // Get posts from localStorage
 
-            // Toggle the display of the options menu
-            optionsMenu.style.display = optionsMenu.style.display === 'block' ? 'none' : 'block';
-        });
+      postContainer.innerHTML = ''; // Clear the container
 
-        // Close the options menu if you click outside of it
-        document.addEventListener('click', function(event) {
-            if (!postSettingButton.contains(event.target)) {
-                optionsMenu.style.display = 'none';
-            }
-        });
+      posts.forEach((post, index) => {
+        const postElement = document.createElement('div');
+        postElement.classList.add('post');
+        postElement.textContent = post.content;
+        postContainer.appendChild(postElement);
+      });
+    }
 
-        // Option actions
-        document.getElementById('save-option').addEventListener('click', function() {
-            alert('Save for later clicked');
-            optionsMenu.style.display = 'none'; // Close the menu after action
-        });
+    // Enable or disable the "Create Post" button
+    document.getElementById('postContent').addEventListener('input', function() {
+      const content = document.getElementById('postContent').value;
+      const createPostBtn = document.getElementById('createPostBtn');
+      createPostBtn.disabled = content.trim() === ''; // Enable button if content is non-empty
+    });
 
-        document.getElementById('hide-option').addEventListener('click', function() {
-            alert('Hide clicked');
-            optionsMenu.style.display = 'none'; // Close the menu after action
-        });
+    // Handle post creation
+    document.getElementById('createPostBtn').addEventListener('click', function() {
+      const content = document.getElementById('postContent').value;
 
-        document.getElementById('report-option').addEventListener('click', function() {
-            alert('Report clicked');
-            optionsMenu.style.display = 'none'; // Close the menu after action
-        });
-    </script>
+      if (content.trim() !== '') {
+        const newPost = { content: content };
+
+        // Get posts from localStorage or use an empty array if none exist
+        const posts = JSON.parse(localStorage.getItem('posts')) || [];
+
+        // Add the new post to the array
+        posts.push(newPost);
+
+        // Save posts back to localStorage
+        localStorage.setItem('posts', JSON.stringify(posts));
+
+        // Clear the textarea and disable the button
+        document.getElementById('postContent').value = '';
+        document.getElementById('createPostBtn').disabled = true;
+
+        // Display the updated posts
+        displayPosts();
+      }
+    });
+
+    // Initial display of posts when the page loads
+    window.onload = function() {
+      displayPosts();
+    };
+  </script>
 
 </body>
 </html>
