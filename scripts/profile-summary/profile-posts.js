@@ -1,18 +1,27 @@
-import { posts } from "../data/posts.js";
-import { users } from "../data/users.js";
-import { addEventListenerForPostPreviewLinks } from "./utils/event-listeners-links-for-post-previews.js";
+import {posts} from "../../data/posts.js";
 
-export function displayAllPosts() {
-  let postsHTML = "";
 
-  posts.forEach((postDetails) => {
-    postsHTML += `
+export function displayAccesories(user) {
+  document.querySelector(".js-latest-post-text-container")
+    .innerHTML = `
+                <p>
+                    ${user.nickname}
+                </p>
+                `
+}
+
+export function displayAllUserPosts(user) {
+  let userPostsElement = ""; // Declare userPostsElement as let, not const
+
+  user.postsIds.forEach((postId) => {
+    const postObject = posts.find(post => post.postId === postId);
+    userPostsElement += `
             <div class="post-container-preview">
                 <div class="top-of-post-preview">
-                      <div class="js-user-directory directory profile-picture-and-author-name-preview" data-user-directory-id="${postDetails.author.userId}">
-                          <img class="author-profile-picture-preview" src="${postDetails.author.profilePicture}">
+                      <div class="js-user-directory directory profile-picture-and-author-name-preview" data-user-directory-id="${postObject.author.userId}">
+                          <img class="author-profile-picture-preview" src="${postObject.author.profilePicture}">
                           <p class="author-name">
-                              ${postDetails.author.nickname} 
+                              ${postObject.author.nickname} 
                           </p>
                       </div>
 
@@ -25,15 +34,15 @@ export function displayAllPosts() {
                         </div>
                     </div>
                 </div>
-                <div class="directory js-post-directory" data-post-directory-id="${postDetails.postId}">
+                <div class="directory js-post-directory" data-post-directory-id="${postObject.postId}">
                   <div class="post-title-container-preview">
                       <p class="post-title-preview">
-                          ${postDetails.postTitle}
+                          ${postObject.postTitle}
                       </p>
                   </div>
                   <div class="main-part-of-the-post-preview">
                       <p class="post-preview-text">
-                          ${postDetails.texts}
+                          ${postObject.texts}
                       </p>
                   </div>
                 </div>
@@ -44,36 +53,36 @@ export function displayAllPosts() {
                     <div class="liked-container">
                         <img src="images/icons/like-button.png">
                         <p>
-                            ${postDetails.ratings.likes}
+                            ${postObject.ratings.likes}
                         </p>
                     </div>
                     <div class="disliked-container">
                         <img src="images/icons/dislike-button.png">
                         <p>
-                            ${postDetails.ratings.dislikes}
+                            ${postObject.ratings.dislikes}
                         </p>
                     </div>
                     <div class="saved-container">
                         <img src="images/icons/saved.png">
                         <p>
-                            ${postDetails.ratings.saves} <!-- Fixed to 'saves' instead of 'saved' -->
+                            ${postObject.ratings.saves} 
                         </p>
                     </div>
                     <div class="comments-container">
                       <img src="images/icons/comments.png">
                       <p>
-                            ${postDetails.ratings.comments}
+                            ${postObject.ratings.comments}
                       </p>
                   </div>
                 </div>
-            </div>`;
+            </div>
+    `;
   });
-  document.querySelector('.js-home-section')
-    .innerHTML = postsHTML;
+
+    document.querySelector(".js-user-posts")
+      .innerHTML = userPostsElement;
 }
 
-displayAllPosts();  // Calling the function to display the posts
 
-document.addEventListener('DOMContentLoaded', () => {
-    addEventListenerForPostPreviewLinks();
-})
+
+

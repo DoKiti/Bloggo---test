@@ -262,3 +262,5 @@ By combining these technologies, you can create a full-stack social media applic
 
 Use OOP to represent posts, users, and comments as objects with methods.
 Use FP for utility functions like sorting posts, filtering comments, or handling interactions (like incrementing likes or saving posts).
+
+

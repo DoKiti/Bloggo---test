@@ -8,12 +8,12 @@ class Post {
   author;
   authorProfilePicture;
   
-  constructor(postDetails, user) {
+  constructor(postDetails, author) {
     this.postId = postDetails.postId;
     this.postTitle = postDetails.postTitle;
     this.texts = postDetails.texts;
     this.ratings = postDetails.ratings;
-    this.author = user;
+    this.author = author;
     this.authorProfilePicture = postDetails.authorProfilePicture;
   }
 }
@@ -30,7 +30,6 @@ export let posts = [
       comments: 13
     }, 
     authorId: '1',
-    authorProfilePicture: "images/profile-pictures/profile1.jpg",
   },
   {
     postId: "8888882",
@@ -43,11 +42,21 @@ export let posts = [
       comments: 218
     },
     authorId: '1',
-    authorProfilePicture: "images/profile-pictures/profile1.jpg",
+  },  {
+    postId: "8888883",
+    postTitle: "wtv",
+    texts: "Im crying rn",
+    ratings: {
+      saves: 23,
+      likes: 17,
+      dislikes: 12,
+      comments: 156
+    },
+    authorId: '2',
   }
-].map((post) => {
-  const user = users.find((u) => u.userId === post.authorId); // Correctly use authorId
-  return new Post(post, user); // Pass user to Post constructor
+].map((postDetails) => {
+  const author = users.find((u) => u.userId === postDetails.authorId); // Correctly use authorId
+  return new Post(postDetails, author); // Pass user to Post constructor
 });
 
 

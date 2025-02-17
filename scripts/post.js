@@ -14,26 +14,54 @@ function getPostById(postId) {
 
 
 function displayPostDetails(post) {
-  // Log to ensure elements exist
+  document.querySelector(".js-post-section")
+    .innerHTML = `              
+          <div class="profile-picture-and-post-title-container">
+            <div class="profile-picture-and-post-title">
+                <a href="blog.html">
+                  <img class="back-button-image" src="images/icons/back-icon.png">
+                </a>
+                <a href="profile.html?userId=${post.author.userId}">
+                  <img class="js-profile-picture author-profile-picture" src="${post.author.profilePicture}">
+                </a>
+                <p class="post-title">
+                  ${post.postTitle}
+                </p>
+              </div>
+          </div>
 
-  const postTitleElement = document.querySelector('.post-title');
-  const postTextElement = document.querySelector('.post-texts');
-  const postLikesElement = document.querySelector('.likes');
-  const postDislikesElement = document.querySelector('.dislikes');
-  const postSavesElement = document.querySelector('.saves');
-  const postCommentsElement = document.querySelector('.comments');
-  const profilePictureElement = document.querySelector('.js-profile-picture')
-
-  // Log to confirm the elements
-
-  // Injecting post data into the page
-  postTitleElement.textContent = post.postTitle;
-  postTextElement.textContent = post.texts;
-  postLikesElement.innerHTML = post.ratings.likes;
-  postDislikesElement.innerHTML = post.ratings.dislikes;
-  postSavesElement.innerHTML = post.ratings.saves;
-  postCommentsElement.innerHTML = post.ratings.comments;
-  profilePictureElement.src = post.authorProfilePicture;
+          <div class="main-part-of-the-post">
+            <p class="post-texts">
+              ${post.texts}
+            </p>
+            
+            <div class="post-preview-ratings post-ratings">
+              <div class="liked-container">
+                  <img src="images/icons/like-button.png">
+                  <p class="likes">
+                    ${post.ratings.likes} 
+                  </p>
+              </div>
+              <div class="disliked-container">
+                  <img src="images/icons/dislike-button.png">
+                  <p class="dislikes">
+                    ${post.ratings.dislikes} 
+                  </p>
+              </div>
+              <div class="saved-container">
+                  <img src="images/icons/saved.png">
+                  <p class="saves">
+                    ${post.ratings.saves} 
+                  </p>
+              </div>
+              <div class="comments-container">
+                <img src="images/icons/comments.png">
+                <p class="comments">
+                  ${post.ratings.comments}    
+                </p>
+            </div>
+          </div>`
+        
 }
 
 
@@ -44,8 +72,14 @@ document.addEventListener('DOMContentLoaded', () => {
   if (post) {
     // If the post is found, display its details
     displayPostDetails(post);
+    const profilePictureElement = document.querySelector("")
+
+
   } else {
     // If no post is found with that ID, display an error or a 404 message
     document.querySelector('.main-section').innerHTML = '<p>Post not found!</p>';
   }
 });
+
+
+
