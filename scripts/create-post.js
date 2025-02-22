@@ -1,55 +1,49 @@
-// Function to display posts on the page
-function displayPosts() {
-  
+import {Post, posts} from "../data/posts.js";
+import { generateUniquePostId } from "./utils/unique-post-id.js";
+
+// default values
+const postId = generateUniquePostId();
+const ratings = {
+  saves: 0,
+  likes: 0,
+  dislikes: 0,
+  comments: 0
+};
+const authorId = '2';
+
+// Get the input elements
+const postTitleElement = document.getElementById('postTitle');
+const postContentElement = document.getElementById('postContent');
+const createPostButton = document.getElementById('createPostButton');
+
+// Function to enable/disable button
+function toggleCreatePostButton() {
+  const title = postTitleElement.value.trim();
+  const content = postContentElement.value.trim();
+  createPostButton.disabled = title === '' || content === ''; // Disable button if either is empty
 }
 
-function createPosts() {
-  const postContainer = document.getElementById('postContainer');
-  const posts = JSON.parse(localStorage.getItem('posts')) || []; // Get posts from localStorage
+// Add event listeners for both title and content
+postTitleElement.addEventListener('input', toggleCreatePostButton);
+postContentElement.addEventListener('input', toggleCreatePostButton);
 
-  postContainer.innerHTML = ''; // Clear the container
 
-  posts.forEach((post, index) => {
-    const postElement = document.createElement('div');
-    postElement.classList.add('post');
-    postElement.textContent = post.content;
-    postContainer.appendChild(postElement);
-  });
+// Function to replace newlines with <br> for the post content
+function convertNewlinesToBreaks(text) {
+  return text.replace(/\n/g, '<br>');
 }
-
-// Enable or disable the "Create Post" button
-document.getElementById('postContent').addEventListener('input', function() {
-  const content = document.getElementById('postContent').value;
-  const createPostBtn = document.getElementById('createPostBtn');
-  createPostBtn.disabled = content.trim() === ''; // Enable button if content is non-empty
-});
 
 // Handle post creation
-document.getElementById('createPostBtn').addEventListener('click', function() {
-  const content = document.getElementById('postContent').value;
+document.getElementById('createPostButton').addEventListener('click', function() {
+  const postTitle = document.getElementById('postTitle').value;
+  const nonFormatedContent = document.getElementById('postContent').value;
 
-  if (content.trim() !== '') {
-    const newPost = { content: content };
+  // Convert the content's newlines to <br> tags
+  const texts = convertNewlinesToBreaks(nonFormatedContent);
 
-    // Get posts from localStorage or use an empty array if none exist
-    const posts = JSON.parse(localStorage.getItem('posts')) || [];
+  posts.unshift(new Post(postId, postTitle, texts, ratings, authorId));
 
-    // Add the new post to the array
-    posts.push(newPost);
+  localStorage.setItem('posts', JSON.stringify(posts));
 
-    // Save posts back to localStorage
-    localStorage.setItem('posts', JSON.stringify(posts));
-
-    // Clear the textarea and disable the button
-    document.getElementById('postContent').value = '';
-    document.getElementById('createPostBtn').disabled = true;
-
-    // Display the updated posts
-    displayPosts();
-  }
+  window.location.href = "blog.html";
 });
-
-// Initial display of posts when the page loads
-window.onload = function() {
-  displayPosts();
-};

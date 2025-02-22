@@ -15,6 +15,10 @@ a {
   text-decoration: none; /* Optionally remove the underline */
 }
 
+textarea {
+  resize: none; /* Disable resizing */
+}
+
 .main-section {
     position: relative;
     top: 70px;

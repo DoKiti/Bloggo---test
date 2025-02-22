@@ -15,7 +15,7 @@ class User {
   }
 }
 
-export let users = [
+export let users = JSON.parse(localStorage.getItem('users')) || [
   {
     userId: '1',
     profilePicture: 'images/profile-pictures/profile1.jpg',

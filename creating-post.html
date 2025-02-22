@@ -10,6 +10,7 @@
         <link rel="stylesheet" href="styles/shared/sidebar.css">
         <link rel="stylesheet" href="styles/shared/post-preview.css">
         <link rel="stylesheet" href="styles/shared/like-dislike-shared.css">
+        <link rel="stylesheet" href="styles/pages/creating-post.css">
     </head>
     <body>
         <header class="header">
@@ -22,14 +23,12 @@
                 </p>
             </div>
             <div class="right-section">
-                <a href="creating-post.html">
-                    <button class="create-button">
-                        <img class="create-image" src="images/icons/create.png">
-                        <p class="create-button-text">
-                            Create
-                        </p>
-                    </button>        
-                </a>        
+                <button class="create-button">
+                    <img class="create-image" src="images/icons/create.png">
+                    <p class="create-button-text">
+                        Create
+                    </p>
+                </button>                
                 <div class="notifications-container">
                     <img class="notifications-icon" src="images/icons/notifications.svg">
                     <div class="tooltip">
@@ -62,10 +61,25 @@
         </nav>
 
 
-        <main class="js-home-section home-section main-section">
+        <main class="main-section">   
+
+          <div class="post-form">
+            <div class="create-your-post-container">
+              <h1 class="create-your-post-text">Create your very own post!</h1>
+            </div>
+
+            <input type="text" id="postTitle" placeholder="Title" class="post-title">
+            <textarea class="post-content" id="postContent" placeholder="Write something..." rows="6"></textarea>
+            <button class="create-post-button" id="createPostButton" disabled>Create Post</button>
+          </div>
+
+          <div class="home-section-shadowed js-home-section home-section ">
+
+          </div>
             
         </main>
 
+        <script type="module" src="scripts/create-post.js"></script>
          <script type="module" src="scripts/home.js"></script>
     </body>
 </html>

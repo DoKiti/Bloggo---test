@@ -1,6 +1,6 @@
 import { users } from "./users.js";
 
-class Post {
+export class Post {
   postId;
   postTitle;
   texts;
@@ -8,17 +8,19 @@ class Post {
   author;
   authorProfilePicture;
   
-  constructor(postDetails, author) {
-    this.postId = postDetails.postId;
-    this.postTitle = postDetails.postTitle;
-    this.texts = postDetails.texts;
-    this.ratings = postDetails.ratings;
+  constructor(postId, postTitle, texts, ratings, authorId) {
+    const author = users.find((u) => u.userId === authorId); 
+
+    this.postId = postId;
+    this.postTitle = postTitle;
+    this.texts = texts;
+    this.ratings = ratings;
     this.author = author;
-    this.authorProfilePicture = postDetails.authorProfilePicture;
+    this.authorProfilePicture = author.ProfilePicture;
   }
 }
 
-export let posts = [
+export let posts = JSON.parse(localStorage.getItem('posts')) || [
   {
     postId: "8888881",
     postTitle: "The Glacier is coming down",
@@ -55,11 +57,17 @@ export let posts = [
     authorId: '2',
   }
 ].map((postDetails) => {
-  const author = users.find((u) => u.userId === postDetails.authorId); // Correctly use authorId
-  return new Post(postDetails, author); // Pass user to Post constructor
+  return new Post(
+    postDetails.postId,
+    postDetails.postTitle,
+    postDetails.texts,
+    postDetails.ratings,
+    postDetails.authorId,
+  );
 });
 
 
+/*
 export let postss = [];
 
 export function loadPostsFetch() {
@@ -74,3 +82,5 @@ export function loadPostsFetch() {
   });
   return promise
 }
+
+*/

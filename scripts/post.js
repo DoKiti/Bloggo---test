@@ -72,7 +72,6 @@ document.addEventListener('DOMContentLoaded', () => {
   if (post) {
     // If the post is found, display its details
     displayPostDetails(post);
-    const profilePictureElement = document.querySelector("")
 
 
   } else {
