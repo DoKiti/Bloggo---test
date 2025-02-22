@@ -46,12 +46,12 @@ textarea {
   @media (max-width: 700px) {
     .main-section {
       left: 95px;
-      width: calc(100% - 955px); /* Ensure content fits within the viewport */
+      width: calc(100% - 95px); /* Ensure content fits within the viewport */
   
     }
   }
   
-  @media (max-width: 450px) {
+  @media (max-width: 500px) {
     .main-section {
       left: 65px;
       width: calc(100% - 65px); /* Ensure content fits within the viewport */

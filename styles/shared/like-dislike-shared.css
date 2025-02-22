@@ -54,3 +54,36 @@
   margin-right: 28px;
   cursor: pointer;
 }
+
+@media (max-width: 1000px) {
+  .post-preview-ratings {
+    height: 25px;
+  }
+  
+  .post-preview-ratings img {
+    height: 25px;
+    margin-right: 3px;
+  }
+}
+
+@media (max-width: 700px) {
+  .post-preview-ratings {
+    height: 22px;
+  }
+  
+  .post-preview-ratings img {
+    height: 22px;
+    margin-right: 3px;
+  }
+}
+
+@media (max-width: 500px) {
+  .post-preview-ratings {
+    height: 18px;
+  }
+  
+  .post-preview-ratings img {
+    height: 18px;
+    margin-right: 3px;
+  }
+}

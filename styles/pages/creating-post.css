@@ -4,7 +4,7 @@
 }
 
 .create-your-post-text {
-  color: rgb(0, 0, 0);
+  color: rgb(255, 255, 255);
 }
 
 .post-form {
@@ -15,8 +15,8 @@
   gap: -1px;
   z-index: 999;
   top: 120px;
-  background-color: rgb(151, 151, 151);
-  border: none;
+  background-color: rgb(136, 220, 253);
+  border: 1px solid black;
   border-radius: 8px;
 }
 
@@ -33,11 +33,13 @@
 }
 
 .create-post-button:disabled {
-  opacity: 1;
   background-color: #bbb; /* Solid grey color */
   color: #fff;            /* Solid white text */
   opacity: 1;              /* Ensure the button is not translucent */
-  height: 28px;
 }
 
-
+.create-post-button {
+  background-color: rgb(147, 224, 255);
+  height: 55px;
+  border: 1px solid black;
+}

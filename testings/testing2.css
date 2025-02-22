@@ -1,0 +1,113 @@
+.post-container-preview {
+  background-color: rgb(255, 255, 255);
+  border-radius: 5px; 
+  width: 92%;
+  min-height: 250px;
+  margin: 0 auto;
+  margin-top: 28px;
+  border: 1px solid rgb(177, 177, 177);
+  display: flex;
+  flex-direction: column;
+ }
+ 
+ .top-of-post-preview {
+   flex: 0.01;
+   background-color: rgb(255, 255, 255);
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   margin: 0;
+   padding: 0;
+ }
+ 
+ 
+ .profile-picture-and-author-name-preview {
+   display: flex;
+   justify-content: flex-start;
+   align-items: center;
+   padding-block: 5px;
+   padding-right: 5px;
+ }
+ .author-profile-picture-preview {
+   height: 45px;
+   border-radius: 25px;
+   margin-inline: 15px;
+ }
+ 
+ 
+ .post-setting {
+   position: relative;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   cursor: pointer;
+ }
+ 
+ .post-setting-icon {
+   height: 35px;
+   margin-right: 8px;
+ }
+ 
+ 
+ .post-title-container-preview {
+   flex: 2;
+   background-color: rgb(255, 255, 255);
+   border-block: 1px solid rgb(177, 177, 177);
+ }
+ 
+ /* These styles will limit text to 2 lines. Anything
+    beyond 2 lines will be replaced with "..."
+    You can find this code by using an A.I. tool or by
+    searching in Google.
+    https://css-tricks.com/almanac/properties/l/line-clamp/ */
+ .post-title-preview {
+   display: -webkit-box;
+   -webkit-line-clamp: 1;
+   -webkit-box-orient: vertical;
+   overflow: hidden;
+   padding-inline: 15px;
+   font-weight: bold;
+   font-size: 18px;
+ }
+ 
+ 
+ .main-part-of-the-post-preview {
+   flex: 6;
+   background-color: rgb(255, 255, 255);
+ }
+ 
+ .post-preview-text {
+   display: -webkit-box;
+   -webkit-line-clamp: 6;
+   -webkit-box-orient: vertical;
+   overflow: hidden;
+   padding-inline: 15px;
+   font-size: 15px;
+   margin-bottom: 0;
+ }
+ 
+ 
+ 
+ /* Ensure the anchor tag fills its parent, no need for height */
+ .directory {
+   width: 100%;
+   position: relative;
+   z-index: 1; /* Ensure it's on top */
+   height: 100%; /* Ensure it fills the parent vertically */
+   cursor: pointer;
+ }
+ 
+ /* White-space inside the directory anchor tag */
+ .white-space {
+   flex: 1; /* Take up available space */
+   background-color: rebeccapurple; /* No background */
+   cursor: pointer;
+   /* No need to specify height, flex will handle it */
+ }
+ 
+ 
+ .post-title-container-preview, .main-part-of-the-post-preview {
+   position: relative;
+   z-index: 0; /* Allow anchor to sit on top of these sections */
+ }
+ 

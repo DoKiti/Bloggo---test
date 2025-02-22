@@ -5,7 +5,7 @@ export function displayAccesories(user) {
   document.querySelector(".js-latest-post-text-container")
     .innerHTML = `
                 <p>
-                    ${user.nickname}
+                    Latest posts from ${user.nickname}
                 </p>
                 `
 }
@@ -82,7 +82,3 @@ export function displayAllUserPosts(user) {
     document.querySelector(".js-user-posts")
       .innerHTML = userPostsElement;
 }
-
-
-
-
