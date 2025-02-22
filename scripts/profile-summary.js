@@ -3,10 +3,11 @@ import { displayAccesories, displayAllUserPosts } from "./profile-summary/profil
 import { displayUserDetails } from "./profile-summary/profile.js";
 import { addEventListenerForPostPreviewLinks } from "./utils/event-listeners-links-for-post-previews.js";
 
-
 document.addEventListener('DOMContentLoaded', () => {
   const userId = getUserIdFromUrl(); // Get the postId from the URL
   const user = getUserById(userId); // Find the post by its ID
+
+  console.log(user)
 
   if (user) {
     // If the post is found, display its details

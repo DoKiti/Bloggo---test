@@ -1,4 +1,5 @@
 import {posts} from "../../data/posts.js";
+import { postSetting } from "../utils/post-settings.js";
 
 
 export function displayAccesories(user) {
@@ -25,14 +26,15 @@ export function displayAllUserPosts(user) {
                           </p>
                       </div>
 
-                    <div class="post-setting">
-                        <img class="post-setting-icon" src="images/icons/3-dots.png">
-                        <div class="options-menu">
-                            <a href="#" id="save-option">Save for later</a>
-                            <a href="#" id="hide-option">Hide</a>
-                            <a href="#" id="report-option">Report</a>
-                        </div>
+                  <div class="post-setting" data-post-setting-id="${postObject.postId}">
+                    <img class="post-setting-icon" src="../images/icons/3-dots.png">
+                    <div class="options-menu js-options-menu">
+                        <p role="button" id="delete-option-${postObject.postId}">Delete</p>
+                        <p role="button" id="save-option-${postObject.postId}" class="save-post-button">Save for later</p>
+                        <p role="button" id="report-option-${postObject.postId}">Report</p>
                     </div>
+                  </div>
+
                 </div>
                 <div class="directory js-post-directory" data-post-directory-id="${postObject.postId}">
                   <div class="post-title-container-preview">
@@ -81,4 +83,5 @@ export function displayAllUserPosts(user) {
 
     document.querySelector(".js-user-posts")
       .innerHTML = userPostsElement;
+    postSetting();
 }

@@ -11,6 +11,7 @@
         <link rel="stylesheet" href="styles/shared/profile-summary.css">
         <link rel="stylesheet" href="styles/shared/post-preview.css">
         <link rel="stylesheet" href="styles/shared/like-dislike-shared.css">
+        <link rel="stylesheet" href="styles/shared/post-setting.css">
     </head>
     <body>
         <header class="header">
@@ -81,43 +82,6 @@
 
 
         <script type="module" src="scripts/profile-summary.js"></script>
-        <!-- JUST A WIP 
-        <script>
-            // Get elements
-            const postSettingButton = document.querySelector('.post-setting-icon');
-            const optionsMenu = document.querySelector('.options-menu');
-    
-            // Toggle menu visibility on click
-            postSettingButton.addEventListener('click', function(event) {
-                // Prevent the default action (such as following a link)
-                event.stopPropagation();
-    
-                // Toggle the display of the options menu
-                optionsMenu.style.display = optionsMenu.style.display === 'block' ? 'none' : 'block';
-            });
-    
-            // Close the options menu if you click outside of it
-            document.addEventListener('click', function(event) {
-                if (!postSettingButton.contains(event.target)) {
-                    optionsMenu.style.display = 'none';
-                }
-            });
-    
-            // Option actions
-            document.getElementById('save-option').addEventListener('click', function() {
-                alert('Save for later clicked');
-                optionsMenu.style.display = 'none'; // Close the menu after action
-            });
-    
-            document.getElementById('hide-option').addEventListener('click', function() {
-                alert('Hide clicked');
-                optionsMenu.style.display = 'none'; // Close the menu after action
-            });
-    
-            document.getElementById('report-option').addEventListener('click', function() {
-                alert('Report clicked');
-                optionsMenu.style.display = 'none'; // Close the menu after action
-            });
-        </script> -->
+        <script type="module" src="scripts/utils/post-settings.js"></script>
     </body>
 </html>

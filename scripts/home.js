@@ -1,6 +1,7 @@
 import { posts } from "../data/posts.js";
 import { users } from "../data/users.js";
 import { addEventListenerForPostPreviewLinks } from "./utils/event-listeners-links-for-post-previews.js";
+import { postSetting } from "./utils/post-settings.js";
 
 export function displayAllPosts() {
   let postsHTML = "";
@@ -16,15 +17,16 @@ export function displayAllPosts() {
                           </p>
                       </div>
 
-                    <div class="post-setting">
-                        <img class="post-setting-icon" src="images/icons/3-dots.png">
-                        <div class="options-menu">
-                            <a href="#" id="save-option">Save for later</a>
-                            <a href="#" id="hide-option">Hide</a>
-                            <a href="#" id="report-option">Report</a>
-                        </div>
+                  <div class="post-setting" data-post-setting-id="${postDetails.postId}">
+                    <img class="post-setting-icon" src="../images/icons/3-dots.png">
+                    <div class="options-menu js-options-menu">
+                        <p role="button" id="delete-option-${postDetails.postId}">Delete</p>
+                        <p role="button" id="save-option-${postDetails.postId}" class="save-post-button">Save for later</p>
+                        <p role="button" id="report-option-${postDetails.postId}">Report</p>
                     </div>
+                  </div>
                 </div>
+
                 <div class="directory js-post-directory" data-post-directory-id="${postDetails.postId}">
                   <div class="post-title-container-preview">
                       <p class="post-title-preview">
@@ -70,10 +72,10 @@ export function displayAllPosts() {
   });
   document.querySelector('.js-home-section')
     .innerHTML = postsHTML;
+    
+  addEventListenerForPostPreviewLinks();
+  
+  postSetting()
 }
 
 displayAllPosts();  // Calling the function to display the posts
-
-document.addEventListener('DOMContentLoaded', () => {
-    addEventListenerForPostPreviewLinks();
-})
