@@ -1,5 +1,6 @@
 import {posts} from '../data/posts.js';
 import { displayError } from './displayError.js';
+import { backButtonDirectory } from './utils/back-button-href.js';
 
 // Function to get the value of a URL parameter
 function getPostIdFromUrl() {
@@ -19,7 +20,7 @@ function displayPostDetails(post) {
     .innerHTML = `              
           <div class="profile-picture-and-post-title-container">
             <div class="profile-picture-and-post-title">
-                <a href="blog.html">
+                <a class="js-back-button">
                   <img class="back-button-image" src="images/icons/back-icon.png">
                 </a>
                 <a href="profile.html?userId=${post.author.userId}">
@@ -36,7 +37,7 @@ function displayPostDetails(post) {
               ${post.texts}
             </p>
             
-            <div class="post-preview-ratings post-ratings">
+            <div class="post-preview-ratings post-ratings js-post-ratings">
               <div class="liked-container">
                   <img src="images/icons/like-button.png">
                   <p class="likes">
@@ -66,14 +67,16 @@ function displayPostDetails(post) {
 }
 
 
-document.addEventListener('DOMContentLoaded', () => {
+
+document.addEventListener('DOMContentLoaded', async () => {
   const postId = getPostIdFromUrl(); // Get the postId from the URL
   const post = getPostById(postId); // Find the post by its ID
 
   if (post) {
     // If the post is found, display its details
-    displayPostDetails(post);
+    await displayPostDetails(post);
 
+    backButtonDirectory()
 
   } else {
     // If no post is found with that ID, display an error or a 404 message

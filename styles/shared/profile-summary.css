@@ -137,11 +137,3 @@
     font-size: 11px;
   }
 }
-
-@media (max-width: 500px) {
-  .main-section {
-    left: 65px;
-    width: calc(100% - 65px); /* Ensure content fits within the viewport */
-
-  }
-}

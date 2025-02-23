@@ -22,7 +22,7 @@ export let reportedPosts = JSON.parse(localStorage.getItem('reportedPosts')) || 
     accusorId: "2",
     postId: "1740217626532-114",
     reasoningCategory: "hatefullContent",
-    otherInfo: "just a yucky person she said that the 9/11 was deserved"
+    otherInfo: "just a yucky person she said that the cute little foxy dersevr to die like??? how could she"
   }
 ].map((reportedPostDetails) => {
   return new ReportedPost(reportedPostDetails)

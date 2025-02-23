@@ -1,7 +1,9 @@
 import {Post, posts} from "../data/posts.js";
 import {users} from "../data/users.js";
+import { backButtonDirectory } from "./utils/back-button-href.js";
 import { generateUniquePostId } from "./utils/unique-post-id.js";
 
+backButtonDirectory()
 
 const authorId = '1';
 
@@ -55,5 +57,5 @@ document.getElementById('createPostButton').addEventListener('click', function()
   localStorage.setItem('posts', JSON.stringify(posts));
   localStorage.setItem('users', JSON.stringify(users));
 
-  window.location.href = "blog.html";
+  window.history.back()
 });

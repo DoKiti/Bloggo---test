@@ -16,7 +16,7 @@
     <body>
         <header class="header">
             <div class="left-section">
-                <img class="logo" src="images/icons/logo.png">
+                <img class="js-logo logo" src="images/icons/logo.png">
             </div>
             <div class="middle-section">
                 <p class="header-text">
@@ -65,6 +65,10 @@
         <main class="js-main-section main-section">   
 
           <div class="report-post-form">
+            <a class="js-back-button">
+                <img class="back-button-image" src="images/icons/back-icon.png">
+            </a>
+            
             <div class="report-post-container">
               <h1 class="report-post-text">Why are you reporting post</h1>
             </div>
@@ -74,7 +78,7 @@
               <option value="discrimination">Discrimination</option>
               <option value="harrasment">Harrasment</option>
               <option value="inappropriate">Inappropriate</option>
-              <option value="hatefull-content">Hatefull content</option>
+              <option value="hatefullContent">Hatefull content</option>
               <option value="others">Others</option>
             </select>
             <textarea class="reasoning" id="reasoningContexts" placeholder="Optional context" rows="6"></textarea>
@@ -91,5 +95,6 @@
 
         <script type="module" src="scripts/./post-settings/report-post.js"></script>
         <script type="module" src="scripts/home.js"></script>
+        <script type="module" src="scripts/utils/check-header.js"></script>
     </body>
 </html>

@@ -52,3 +52,7 @@
   opacity: 0.28;
   pointer-events: none;
 }
+
+body {
+  overflow: hidden
+}

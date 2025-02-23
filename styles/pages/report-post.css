@@ -1,6 +1,7 @@
 .report-post-container {
   display: flex;
   justify-content: center;
+  position: relative;
 }
 
 .report-post-text {
@@ -51,4 +52,9 @@
   width: 100%;
   opacity: 0.28;
   pointer-events: none;
+}
+
+
+body {
+  overflow: hidden
 }

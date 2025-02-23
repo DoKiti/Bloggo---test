@@ -38,16 +38,6 @@
   margin-inline: 18px;
 }
 
-.back-button-image {  
-  position: absolute; /* Use absolute positioning */
-  top: 8px; /* Align to the top */
-  left: 0; /* Align to the left */
-  height: 35px;
-  border-radius: 35px;
-  margin-left: 8px;
-}
-
-
 .post-ratings {
   border-top: 1px solid rgb(187, 187, 187);
   margin-top: 8px;

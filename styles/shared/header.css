@@ -39,7 +39,6 @@
 
 .right-section {
     width: 200px;
-    margin-right: 18px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -114,3 +113,21 @@
     height: 45px;
     border-radius: 25px;
 }
+
+
+@media (max-width: 800px) {
+    .middle-section {
+        display: none;
+    }
+  }
+  
+@media (max-width: 368px) {
+	.left-section {
+		display: none;
+	}
+
+	.header {
+    justify-content: right;
+}
+}
+  

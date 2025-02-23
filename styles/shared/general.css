@@ -35,11 +35,21 @@ textarea {
   }
   
   
+.back-button-image {  
+  position: absolute; /* Use absolute positioning */
+  top: 5px; 
+  left: 0;
+  height: 35px;
+  border-radius: 35px;
+  margin-left: 8px;
+  z-index: 98;
+}
+
+
   @media (max-width: 1000px) {
     .main-section {
       left: 125px;
       width: calc(100% - 125px); /* Ensure content fits within the viewport */
-  
     }
   }
   
@@ -47,14 +57,17 @@ textarea {
     .main-section {
       left: 95px;
       width: calc(100% - 95px); /* Ensure content fits within the viewport */
-  
+    }
+    
+    .back-button-image {
+      height: 28px;
     }
   }
   
   @media (max-width: 500px) {
     .main-section {
-      left: 65px;
-      width: calc(100% - 65px); /* Ensure content fits within the viewport */
-  
+      left: 0;
+      width: 100%; 
     }
   }
+

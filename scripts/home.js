@@ -3,6 +3,7 @@ import { users } from "../data/users.js";
 import { addEventListenerForPostPreviewLinks } from "./utils/event-listeners-links-for-post-previews.js";
 import { postSetting } from "./post-settings.js";
 
+
 export function displayAllPosts() {
   let postsHTML = "";
 
@@ -77,5 +78,6 @@ export function displayAllPosts() {
   
   postSetting()
 }
+
 
 displayAllPosts();  // Calling the function to display the posts
