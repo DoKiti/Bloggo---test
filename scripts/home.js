@@ -1,7 +1,7 @@
 import { posts } from "../data/posts.js";
 import { users } from "../data/users.js";
 import { addEventListenerForPostPreviewLinks } from "./utils/event-listeners-links-for-post-previews.js";
-import { postSetting } from "./utils/post-settings.js";
+import { postSetting } from "./post-settings.js";
 
 export function displayAllPosts() {
   let postsHTML = "";

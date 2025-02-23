@@ -1,5 +1,5 @@
 import {posts} from "../../data/posts.js";
-import { postSetting } from "../utils/post-settings.js";
+import { postSetting } from "../post-settings.js";
 
 
 export function displayAccesories(user) {

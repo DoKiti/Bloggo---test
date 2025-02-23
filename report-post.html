@@ -10,7 +10,7 @@
         <link rel="stylesheet" href="styles/shared/sidebar.css">
         <link rel="stylesheet" href="styles/shared/post-preview.css">
         <link rel="stylesheet" href="styles/shared/like-dislike-shared.css">
-        <link rel="stylesheet" href="styles/shared/post-setting.css">
+        <link rel="stylesheet" href="styles/pages/report-post.css">
         <link rel="stylesheet" href="styles/pages/error.css">
     </head>
     <body>
@@ -24,14 +24,12 @@
                 </p>
             </div>
             <div class="right-section">
-                <a href="creating-post.html">
-                    <button class="create-button">
-                        <img class="create-image" src="images/icons/create.png">
-                        <p class="create-button-text">
-                            Create
-                        </p>
-                    </button>        
-                </a>        
+                <button class="create-button">
+                    <img class="create-image" src="images/icons/create.png">
+                    <p class="create-button-text">
+                        Create
+                    </p>
+                </button>                
                 <div class="notifications-container">
                     <img class="notifications-icon" src="images/icons/notifications.svg">
                     <div class="tooltip">
@@ -64,10 +62,34 @@
         </nav>
 
 
-        <main class="js-main-section js-home-section home-section main-section">
+        <main class="js-main-section main-section">   
+
+          <div class="report-post-form">
+            <div class="report-post-container">
+              <h1 class="report-post-text">Why are you reporting post</h1>
+            </div>
+
+            <select class="reasoning-categories" name="Reasoning" id="reasoningCategories">
+            <option value="" selected disabled>Select your reasonings</option>
+              <option value="discrimination">Discrimination</option>
+              <option value="harrasment">Harrasment</option>
+              <option value="inappropriate">Inappropriate</option>
+              <option value="hatefull-content">Hatefull content</option>
+              <option value="others">Others</option>
+            </select>
+            <textarea class="reasoning" id="reasoningContexts" placeholder="Optional context" rows="6"></textarea>
+            <button class="report-post-button" id="reportPostButton" disabled>Create Post</button>
+          </div>
+        
+          <div class="home-section-shadowed">     
+            <div class="js-home-section home-section ">
+
+            </div>
+          </div>
             
         </main>
 
-         <script type="module" src="scripts/home.js"></script>
+        <script type="module" src="scripts/./post-settings/report-post.js"></script>
+        <script type="module" src="scripts/home.js"></script>
     </body>
 </html>

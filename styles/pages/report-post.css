@@ -1,14 +1,14 @@
-.create-your-post-container {
+.report-post-container {
   display: flex;
   justify-content: center;
 }
 
-.create-your-post-text {
+.report-post-text {
   color: rgb(255, 255, 255);
   text-align: center;
 }
 
-.create-post-form {
+.report-post-form {
   position: fixed;
   display: flex;
   flex-direction: column;
@@ -21,25 +21,25 @@
   border-radius: 8px;
 }
 
-.post-title {
+.reasoning-categories {
   height: 38px;
   font-size: 22px;
   padding-left: 8px;
 }
 
-.post-content {
+.reasoning {
   height: 188px;
-  padding-left: 8px;
+  padding-left: 12px;
   font-size: 16px;
 }
 
-.create-post-button:disabled {
+.report-post-button:disabled {
   background-color: #bbb; /* Solid grey color */
   color: #fff;            /* Solid white text */
   opacity: 1;              /* Ensure the button is not translucent */
 }
 
-.create-post-button {
+.report-post-button {
   background-color: rgb(147, 224, 255);
   height: 55px;
   border: 1px solid black;

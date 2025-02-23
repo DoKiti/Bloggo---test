@@ -80,6 +80,3 @@ document.addEventListener('DOMContentLoaded', () => {
     displayError()
   }
 });
-
-
-
