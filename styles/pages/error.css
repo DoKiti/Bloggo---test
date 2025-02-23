@@ -1,0 +1,71 @@
+.error-div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 90%;
+  flex-direction: column;
+}
+
+.error-text {
+  font-size: 80px;
+  text-align: center;
+  margin-block: 18px;
+}
+
+.error-button {
+  background-color: rgb(127, 240, 255);
+  border: none;
+  border-radius: 12px;
+  height: 120px;
+  width: 500px;
+  font-size: 28px;
+  cursor: pointer;
+}
+
+.error-button-href {
+  margin: 0;
+  cursor: pointer;
+}
+
+
+@media (max-width: 1000px) {
+  .error-text {
+    font-size: 60px;
+    margin-block: 18px;
+  }
+  
+  .error-button {
+    border-radius: 12px;
+    height: 120px;
+    width: 500px;
+    font-size: 28px;
+  }
+}
+
+@media (max-width: 700px) {
+    .error-text {
+      font-size: 50px;
+      margin-block: 18px;
+    }
+    
+    .error-button {
+      border-radius: 8px;
+      height: 80px;
+      width: 360px;
+      font-size: 25px;
+    }
+}
+
+@media (max-width: 550px) {
+  .error-text {
+    font-size: 40px;
+    margin-block: 12px;
+  }
+  
+  .error-button {
+    border-radius: 8px;
+    height: 80px;
+    width: 320px;
+    font-size: 22px;
+  }
+}

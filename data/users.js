@@ -22,14 +22,14 @@ export let users = JSON.parse(localStorage.getItem('users')) || [
     username: 'doki_is_the_usn',
     nickname: 'Dokii',
     bio: "Passionate about technology, design, and creativity, I share insights on the latest trends, personal growth, and digital innovations. Join me on a journey of exploration and inspiration!",
-    postsIds: ["8888881", "8888882"]
+    postsIds: ["1740217540043-254", "1740217626532-114"]
   },   {
     userId: '2',
     profilePicture: 'images/profile-pictures/profile2.jpg',
     username: 'miraahq',
     nickname: 'MraHQ',
     bio: "Hi lol",
-    postsIds: ["8888883"]
+    postsIds: ["1740217672202-142"]
   }
 ].map((userDetails) => {
   return new User(userDetails)

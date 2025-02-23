@@ -1,4 +1,5 @@
 import {posts} from '../data/posts.js';
+import { displayError } from './displayError.js';
 
 // Function to get the value of a URL parameter
 function getPostIdFromUrl() {
@@ -76,7 +77,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   } else {
     // If no post is found with that ID, display an error or a 404 message
-    document.querySelector('.main-section').innerHTML = '<p>Post not found!</p>';
+    displayError()
   }
 });
 
