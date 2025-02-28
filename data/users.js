@@ -4,14 +4,28 @@ class User {
   nickname;
   profilePicture;
   postsIds;
+  followers;
+  followings;
+  likes;
 
   constructor(userDetails) {
     this.userId = userDetails.userId;
-    this.profilePicture = userDetails.profilePicture;
     this.username = userDetails.username;
-    this.nickname = userDetails.nickname;
-    this.bio = userDetails.bio
-    this.postsIds = userDetails.postsIds
+    this.nickname = userDetails.nickname || this.username;
+    this.profilePicture = userDetails.profilePicture || 'images/profile-pictures/default-profile.jpg';
+    this.bio = userDetails.bio || '';
+    this.postsIds = userDetails.postsIds || [];
+    this.followers = userDetails.followers || [];
+    this.followings = userDetails.followings || [];
+    this.likes = userDetails.likes || 0;
+  }
+
+  checkFollowersLength() {
+    return this.followers.length;
+  }
+
+  checkFollowingsLength() {
+    return this.followings.length;
   }
 }
 
@@ -21,15 +35,21 @@ export let users = JSON.parse(localStorage.getItem('users')) || [
     profilePicture: 'images/profile-pictures/profile1.jpg',
     username: 'doki_is_the_usn',
     nickname: 'Dokii',
-    bio: "Passionate about technology, design, and creativity, I share insights on the latest trends, personal growth, and digital innovations. Join me on a journey of exploration and inspiration!",
-    postsIds: ["1740217540043-254", "1740217626532-114"]
+    bio: "Passionate about technology, design, and creativity, as personal growth, and digital innovations. Join me on a journey of exploration and inspiration!",
+    postsIds: ["1740217540043-254", "1740217626532-114"],
+    followers: ['2', '8'],
+    followings: ['2'],
+    likes: 37
   },   {
     userId: '2',
     profilePicture: 'images/profile-pictures/profile2.jpg',
     username: 'miraahq',
     nickname: 'MraHQ',
     bio: "Hi lol",
-    postsIds: ["1740217672202-142"]
+    postsIds: ["1740217672202-142"],
+    followers: ['1'],
+    followings: ['1'],
+    likes: 12
   }
 ].map((userDetails) => {
   return new User(userDetails)

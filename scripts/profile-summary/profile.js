@@ -16,5 +16,18 @@ export function displayUserDetails(user) {
                 ${user.bio}
               </p>
             </div>
-          </div>`;
+          </div>
+
+          <div class="profile-followers-following-likes-container">
+            <a data-user-likes="${user.userId}">
+              ${user.checkFollowersLength()} Followers
+            </a>
+            <a data-user-likes="${user.userId}">
+              ${user.checkFollowingsLength()} Followings
+            </a>
+            <a data-user-likes="${user.userId}">
+              ${user.likes} Likes
+            </a>
+          </div>
+          `;
 }
