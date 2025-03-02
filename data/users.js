@@ -4,8 +4,8 @@ class User {
   nickname;
   profilePicture;
   postsIds;
-  followers;
-  followings;
+  followersIds;
+  followingsIds;
   likes;
 
   constructor(userDetails) {
@@ -15,17 +15,17 @@ class User {
     this.profilePicture = userDetails.profilePicture || 'images/profile-pictures/default-profile.jpg';
     this.bio = userDetails.bio || '';
     this.postsIds = userDetails.postsIds || [];
-    this.followers = userDetails.followers || [];
-    this.followings = userDetails.followings || [];
+    this.followersIds = userDetails.followersIds || [];
+    this.followingsIds = userDetails.followingsIds || [];
     this.likes = userDetails.likes || 0;
   }
 
   checkFollowersLength() {
-    return this.followers.length;
+    return this.followersIds.length;
   }
 
   checkFollowingsLength() {
-    return this.followings.length;
+    return this.followingsIds.length;
   }
 }
 
@@ -37,8 +37,8 @@ export let users = JSON.parse(localStorage.getItem('users')) || [
     nickname: 'Dokii',
     bio: "Passionate about technology, design, and creativity, as personal growth, and digital innovations. Join me on a journey of exploration and inspiration!",
     postsIds: ["1740217540043-254", "1740217626532-114"],
-    followers: ['2', '8'],
-    followings: ['2'],
+    followersIds: ['2', '8'],
+    followingsIds: ['2'],
     likes: 37
   },   {
     userId: '2',
@@ -47,8 +47,8 @@ export let users = JSON.parse(localStorage.getItem('users')) || [
     nickname: 'MraHQ',
     bio: "Hi lol",
     postsIds: ["1740217672202-142"],
-    followers: ['1'],
-    followings: ['1'],
+    followersIds: ['1', '3', '8', '9', '17'],
+    followingsIds: ['1'],
     likes: 12
   }
 ].map((userDetails) => {
