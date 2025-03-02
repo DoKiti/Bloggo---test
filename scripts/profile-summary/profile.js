@@ -19,13 +19,13 @@ export function displayUserDetails(user) {
           </div>
 
           <div class="profile-followers-following-likes-container">
-            <a data-user-likes="${user.userId}">
+            <a class="user-followers-count" data-user-followers="${user.userId}">
               ${user.checkFollowersLength()} Followers
             </a>
-            <a data-user-likes="${user.userId}">
+            <a class="user-followings-count" data-user-followings="${user.userId}">
               ${user.checkFollowingsLength()} Followings
             </a>
-            <a data-user-likes="${user.userId}">
+            <a class="user-likes-count" data-user-likes="${user.userId}">
               ${user.likes} Likes
             </a>
           </div>

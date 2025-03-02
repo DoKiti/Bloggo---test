@@ -2,6 +2,7 @@ import { posts } from "../data/posts.js";
 import { users } from "../data/users.js";
 import { addEventListenerForPostPreviewLinks } from "./utils/event-listeners-links-for-post-previews.js";
 import { postSetting } from "./post-settings.js";
+import { scrollToTop } from "./utils/scroll-to-top-button.js";
 
 
 export function displayAllPosts() {
@@ -77,6 +78,13 @@ export function displayAllPosts() {
   addEventListenerForPostPreviewLinks();
   
   postSetting()
+}
+
+if(document.querySelector(".js-home-button-in-home")) {
+  document.querySelector(".js-home-button-in-home")
+  .addEventListener('click', () => {
+    scrollToTop();
+  });
 }
 
 

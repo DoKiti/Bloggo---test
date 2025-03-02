@@ -90,16 +90,15 @@
   border-top: none;
 }
 
-.profile-followers-following-likes-container a {
+.user-followers-count, .user-followings-count, .user-likes-count {
   font-size: 18px;
   margin-inline: 25px;
   margin-block: 15px;
 }
 
-.profile-followers-following-likes-container a:hover {
+.user-followers-count:hover, .user-followings-count:hover {
   text-decoration: underline;
 }
-
 
 
 @media (max-width: 1000px) {
