@@ -16,7 +16,15 @@ if(document.querySelector(".js-saved-button-in-saved")) {
   });
 }
 
-const savedPostsHTML = await displayAllPosts(savedPosts);
+const sortedSavedPosts = savedPosts.sort((a, b) => { 
+  // Parse the timestamps from postId and compare them
+  const timestampA = parseInt(a.postId.split('-')[0], 10);
+  const timestampB = parseInt(b.postId.split('-')[0], 10);
+  
+  return timestampB - timestampA;
+});
+
+const savedPostsHTML = await displayAllPosts(sortedSavedPosts);
 document.querySelector('.js-saved-section')
   .innerHTML = savedPostsHTML
 

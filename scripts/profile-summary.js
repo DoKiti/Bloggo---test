@@ -3,7 +3,7 @@ import { displayAccesories, displayAllUserPosts } from "./profile-summary/profil
 import { displayUserDetails } from "./profile-summary/profile.js";
 import { displayError } from "./displayError.js";
 import { backButtonDirectory } from "./utils/back-button-href.js";
-import { followButton } from "./profile-summary/follow-button.js";
+import { followButton, checkFollowButton } from "./profile-summary/follow-button.js";
 
 backButtonDirectory()
 
@@ -14,6 +14,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   if (user) {
     // If the post is found, display its details]
     await displayUserDetails(user);
+    await checkFollowButton(userId)
     displayAccesories(user);
     displayAllUserPosts(user);
     followButton(userId)

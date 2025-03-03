@@ -11,8 +11,15 @@ if(document.querySelector(".js-home-button-in-home")) {
   });
 }
 
+const sortedPosts = posts.sort((a, b) => { 
+  // Parse the timestamps from postId and compare them
+  const timestampA = parseInt(a.postId.split('-')[0], 10);
+  const timestampB = parseInt(b.postId.split('-')[0], 10);
+  
+  return timestampB - timestampA;
+});
 
-let postsHTML = await displayAllPosts(posts);  // Calling the function to display the posts
+let postsHTML = await displayAllPosts(sortedPosts);  // Calling the function to display the posts
 
 document.querySelector('.js-home-section')
 .innerHTML = postsHTML;
