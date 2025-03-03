@@ -1,6 +1,3 @@
-import { addEventListenerForPostPreviewLinks } from "./event-listeners-links-for-post-previews.js";
-import { postSetting } from "../post-settings.js";
-
 export function displayAllPosts(cetainPostsData) {
   let postsHTML = "";
 
@@ -68,10 +65,5 @@ export function displayAllPosts(cetainPostsData) {
                 </div>
             </div>`;
   });
-  document.querySelector('.js-home-section')
-    .innerHTML = postsHTML;
-    
-  addEventListenerForPostPreviewLinks();
-  
-  postSetting()
+  return postsHTML;
 }

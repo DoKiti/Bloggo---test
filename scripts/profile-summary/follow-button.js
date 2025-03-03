@@ -1,8 +1,10 @@
 export function followButton(userId) {
   const followButtonElement = document.querySelector('.js-follow-button')
 
-  followButtonElement.addEventListener('click', () => {
+  followButtonElement.addEventListener('click', (button) => {
+
     let currentButtonText = followButtonElement.innerHTML.trim()
+    
     if(currentButtonText === 'Follow') {
       followButtonElement.innerHTML = 'Followed'
       followButtonElement.classList.add('followed-button')

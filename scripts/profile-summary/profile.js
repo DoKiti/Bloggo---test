@@ -1,3 +1,5 @@
+import { checkArrayLength } from "../utils/checkLengthArray.js";
+
 export function displayUserDetails(user) {
   document.querySelector(".js-profile-container")
     .innerHTML = `          
@@ -7,7 +9,7 @@ export function displayUserDetails(user) {
                   </div>
                   <div class="other-information-container">
   
-                    <button class="js-follow-button follow-button">
+                    <button data-followed-user-id="${user.userId}" class="js-follow-button follow-button">
                       Follow
                     </button>
 
@@ -25,10 +27,10 @@ export function displayUserDetails(user) {
 
                 <div class="profile-followers-following-likes-container">
                   <a class="user-followers-count" data-user-followers="${user.userId}">
-                    ${user.checkFollowersLength()} Followers
+                    ${checkArrayLength(user.followersIds)} Followers
                   </a>
                   <a class="user-followings-count" data-user-followings="${user.userId}">
-                    ${user.checkFollowingsLength()} Followings
+                    ${checkArrayLength(user.followingsIds)} Followings
                   </a>
                   <a class="user-likes-count" data-user-likes="${user.userId}">
                     ${user.likes} Likes

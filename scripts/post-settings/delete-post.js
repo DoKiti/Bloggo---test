@@ -1,5 +1,6 @@
 import { posts } from "../../data/posts.js";
 import { users } from "../../data/users.js";
+import { savedPostsIds } from "../../data/saves.js";
 
 const windowLocation = window.location.href;
 
@@ -17,9 +18,14 @@ export function deletePost(postId) {
     return userObject; // Return the modified userObject
   });
 
+
+  // Remove the postId from saved posts if it exists
+  const updatedSavedPostsIds = savedPostsIds.filter(savedPost => savedPost.postId !== postId);
+
   // Save the updated posts and users to localStorage
   localStorage.setItem("posts", JSON.stringify(updatedPosts));
   localStorage.setItem("users", JSON.stringify(updatedUsers));
+  localStorage.setItem("savedPosts", JSON.stringify(updatedSavedPostsIds))
 
   // Optionally, redirect to refresh the page or re-render the updated posts list
   window.location.href = windowLocation;  

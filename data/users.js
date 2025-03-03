@@ -19,14 +19,6 @@ class User {
     this.followingsIds = userDetails.followingsIds || [];
     this.likes = userDetails.likes || 0;
   }
-
-  checkFollowersLength() {
-    return this.followersIds.length;
-  }
-
-  checkFollowingsLength() {
-    return this.followingsIds.length;
-  }
 }
 
 export let users = JSON.parse(localStorage.getItem('users')) || [

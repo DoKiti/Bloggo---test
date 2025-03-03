@@ -51,7 +51,7 @@ function displayPostDetails(post) {
                   </p>
               </div>
               <div class="saved-container">
-                  <img src="images/icons/saved.png">
+                  <img src="images/icons/non-page-saved.png">
                   <p class="saves">
                     ${post.ratings.saves} 
                   </p>

@@ -1,7 +1,6 @@
 import { getUserById, getUserIdFromUrl } from "./utils/getting-user-from-URL.js";
 import { displayAccesories, displayAllUserPosts } from "./profile-summary/profile-posts.js";
 import { displayUserDetails } from "./profile-summary/profile.js";
-import { addEventListenerForPostPreviewLinks } from "./utils/event-listeners-links-for-post-previews.js";
 import { displayError } from "./displayError.js";
 import { backButtonDirectory } from "./utils/back-button-href.js";
 import { followButton } from "./profile-summary/follow-button.js";
@@ -17,7 +16,6 @@ document.addEventListener('DOMContentLoaded', async () => {
     await displayUserDetails(user);
     displayAccesories(user);
     displayAllUserPosts(user);
-    addEventListenerForPostPreviewLinks();
     followButton(userId)
   } else {
     // If no post is found with that ID, display an error or a 404 message
