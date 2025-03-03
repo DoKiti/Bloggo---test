@@ -93,16 +93,6 @@
   border-top: none;
 }
 
-.user-followers-count, .user-followings-count, .user-likes-count {
-  font-size: 18px;
-  margin-inline: 25px;
-  margin-block: 15px;
-}
-
-.user-followers-count:hover, .user-followings-count:hover {
-  text-decoration: underline;
-}
-
 .follow-button {
   position: absolute;
   right: 12px;
@@ -130,6 +120,18 @@
   background-color: rgb(212, 212, 212);
   color: black;
 }
+
+.user-followers-count, .user-followings-count, .user-likes-count {
+  font-size: 18px;
+  margin-inline: 25px;
+  margin-block: 15px;
+}
+
+.user-followers-count:hover, .user-followings-count:hover {
+  text-decoration: underline;
+}
+
+
 
 @media (max-width: 1000px) {
   .other-information-container {
@@ -169,7 +171,7 @@
     font-size: 15px;
   }
 
-  .profile-followers-following-likes-container a {
+  .user-followers-count, .user-followings-count, .user-likes-count {
     font-size: 15px;
     margin-inline: 20px;
     margin-block: 12px;
@@ -201,7 +203,7 @@
     font-size: 11px;
   }
 
-  .profile-followers-following-likes-container a {
+  .user-followers-count, .user-followings-count, .user-likes-count {
     font-size: 13px;
     margin-inline: 18px;
     margin-block: 9px;
@@ -243,12 +245,6 @@
     font-size: 10px;
   }
 
-  .profile-followers-following-likes-container a {
-    font-size: 13px;
-    margin-inline: 18px;
-    margin-block: 9px;
-  }
-
   .profile-picture {
     height: 90px;
     border-radius: 45px;
@@ -268,5 +264,19 @@
     right: 5px;
     font-size: 12px;
     padding: 3px 12px;
+  }
+
+  .user-followers-count, .user-followings-count, .user-likes-count {
+    font-size: 13px;
+    margin-inline: 18px;
+    margin-block: 9px;
+  }
+}
+
+@media (max-width: 320.1px) {
+  .user-followers-count, .user-followings-count, .user-likes-count {
+    font-size: 10px;
+    margin-inline: 18px;
+    margin-block: 9px;
   }
 }
