@@ -25,15 +25,20 @@
 }
 
 .profile-picture-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   border-right: 1px solid rgb(177, 177, 177);
   height: 100%;
 }
 
 .other-information-container {
+  position: relative;
   display: flex;
   flex-direction: column; /* Change from row to column for vertical layout */
   justify-content: flex-start; /* Align items at the top */
   padding: 15px;
+  width: 100%;
 }
 
 
@@ -56,9 +61,6 @@
   flex: 5;
   font-size: 18px;
   margin: 0;  
-  display: -webkit-box;
-  -webkit-line-clamp: 5;
-  -webkit-box-orient: vertical;
 }
 
 .others-post {
@@ -69,7 +71,7 @@
 
 
 .latest-post-text-container {
-  background-color: rgb(162, 255, 255);
+  background-color: rgb(29, 155, 240);
   margin-block: 28px;
 }
 
@@ -77,6 +79,7 @@
   font-weight: bold;
   font-size: 28px;
   padding-left: calc(100vw * 0.038);
+  color: white;
 }
 
 
@@ -100,6 +103,33 @@
   text-decoration: underline;
 }
 
+.follow-button {
+  position: absolute;
+  right: 12px;
+  top: 12px;
+  font-size: 18px;
+  background-color: rgb(29, 155, 240);
+  color: white;
+  padding: 10px 22px;
+  border: none;
+  font-weight: bold;
+  border-radius: 50px;
+  line-height: 22.5px;
+  cursor: pointer;
+  transition: box-shadow 0.15s;
+  margin-left: 8px;
+}
+.follow-button:hover {
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.18);
+}
+.follow-button:active {
+  opacity: 0.8;
+}
+
+.followed-button {
+  background-color: rgb(212, 212, 212);
+  color: black;
+}
 
 @media (max-width: 1000px) {
   .other-information-container {
@@ -144,9 +174,16 @@
     margin-inline: 20px;
     margin-block: 12px;
   }
+
+  .follow-button {
+    top: 8px;
+    right: 8px;
+    font-size: 15px;
+    padding: 8px 16px;
+  }
 }
 
-@media (max-width: 650px) {
+@media (max-width: 600px) {
   .other-information-container {
     padding: 8px;
   }
@@ -168,5 +205,68 @@
     font-size: 13px;
     margin-inline: 18px;
     margin-block: 9px;
+  }
+
+  .profile-picture {
+    height: 120px;
+    border-radius: 60px;
+  }
+
+  .profile-picture-and-other-information {
+    height: 150px;
+  }
+
+  .follow-button {
+    top: 8px;
+    right: 8px;
+    font-size: 13px;
+    padding: 5px 13px;
+  }
+}
+
+
+@media (max-width: 425px) {
+  .other-information-container {
+    padding: 8px;
+  }
+
+  .profile-nickname {
+    font-size: 18px;
+  }
+  
+  .profile-username {
+    font-size: 8px;
+    margin-bottom: 6px;
+  }
+  
+  .profile-bio {
+    font-size: 10px;
+  }
+
+  .profile-followers-following-likes-container a {
+    font-size: 13px;
+    margin-inline: 18px;
+    margin-block: 9px;
+  }
+
+  .profile-picture {
+    height: 90px;
+    border-radius: 45px;
+    margin: 10px;
+  }
+
+  .profile-picture-and-other-information {
+    height: 120px;
+  }
+  
+  .latest-post-text-container p {
+    font-size: 22px;
+  }
+
+  .follow-button {
+    top: 5px;
+    right: 5px;
+    font-size: 12px;
+    padding: 3px 12px;
   }
 }

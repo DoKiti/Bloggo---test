@@ -1,13 +1,22 @@
 TODAY:
   backend
     database 
+
   authentication
-  saved
-  liked & dislike
-  comments
+
+  saved ==>  kinda finished
+
+  posts stuff
+    liked & dislike
+    comments
+  
   profile summary
-  followed
+    follow ==> priority
+      followers
+      followings
+      follow button
+      followed
+
   testing
+
   notifications
-  followers
-  followings

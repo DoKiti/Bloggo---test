@@ -16,7 +16,7 @@
   gap: -1px;
   z-index: 999;
   top: 120px;
-  background-color: rgb(136, 220, 253);
+  background-color: rgb(29, 155, 240);
   border: 1px solid black;
   border-radius: 8px;
 }
@@ -35,15 +35,15 @@
 
 .create-post-button:disabled {
   background-color: #bbb; /* Solid grey color */
-  color: #fff;            /* Solid white text */
   opacity: 1;              /* Ensure the button is not translucent */
 }
 
 .create-post-button {
-  background-color: rgb(147, 224, 255);
+  background-color: rgb(29, 155, 240);
   height: 55px;
   border: 1px solid black;
   cursor: pointer;
+  color: white;
 }
 
 .home-section-shadowed {

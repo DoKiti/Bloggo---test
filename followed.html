@@ -43,28 +43,28 @@
         </header>
 
         <nav class="sidebar">
-            <div class="js-home-button-in-home sidebar-button">
-                <img src="images/icons/on-page-home.png">
+          <a href="blog.html">
+              <div class="sidebar-button">
+                <img src="images/icons/non-page-home.png">
                 <p>
                     Home
                 </p>
             </div>
-            <a href="saved.html">
-                <div class="sidebar-button">
-                    <img src="images/icons/non-page-saved.png">
-                    <p>
-                        Saved
-                    </p> 
-                </div>
-            </a>
-            <a href="followed.html">
+          </a>
+          <a href="saved.html">
               <div class="sidebar-button">
-                  <img src="images/icons/non-page-followed.png">
+                  <img src="images/icons/non-page-saved.png">
                   <p>
-                      Followed
-                  </p>
+                      Saved
+                  </p> 
               </div>
-            </a>
+          </a>
+          <div class="js-followed-button-in-followed sidebar-button">
+              <img src="images/icons/non-page-followed.png">
+              <p>
+                  Followed
+              </p>
+          </div>
         </nav>
 
 
@@ -72,7 +72,7 @@
             
         </main>
 
-         <script type="module" src="scripts/home.js"></script>
-         <script type="module" src="scripts/utils/check-header.js"></script>
+        <script type="module" src="scripts/followed.js"></script>
+        <script type="module" src="scripts/utils/check-header.js"></script>
     </body>
 </html>

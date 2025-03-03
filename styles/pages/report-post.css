@@ -17,7 +17,7 @@
   gap: -1px;
   z-index: 999;
   top: 120px;
-  background-color: rgb(136, 220, 253);
+  background-color: rgb(29, 155, 240);
   border: 1px solid black;
   border-radius: 8px;
 }
@@ -41,7 +41,7 @@
 }
 
 .report-post-button {
-  background-color: rgb(147, 224, 255);
+  background-color: rgb(29, 155, 240);
   height: 55px;
   border: 1px solid black;
   cursor: pointer;
