@@ -7,6 +7,7 @@ class User {
   followersIds;
   followingsIds;
   likes;
+  savedPostsIds;
 
   constructor(userDetails) {
     this.userId = userDetails.userId;
@@ -18,6 +19,7 @@ class User {
     this.followersIds = userDetails.followersIds || [];
     this.followingsIds = userDetails.followingsIds || [];
     this.likes = userDetails.likes || 0;
+    this.savedPostsIds = userDetails.savedPostsIds
   }
 }
 
@@ -31,7 +33,8 @@ export let users = JSON.parse(localStorage.getItem('users')) || [
     postsIds: ["1740217540043-254", "1740217626532-114"],
     followersIds: ['2', '8'],
     followingsIds: ['2'],
-    likes: 37
+    likes: 37,
+    savedPostsIds: ['1740217626532-114']
   },   {
     userId: '2',
     profilePicture: 'images/profile-pictures/profile2.jpg',
@@ -41,8 +44,10 @@ export let users = JSON.parse(localStorage.getItem('users')) || [
     postsIds: ["1740217672202-142"],
     followersIds: ['1', '3', '8', '9', '17'],
     followingsIds: ['1'],
-    likes: 12
+    likes: 12,
+    savedPostsIds: ['1740217626532-114']
   }
 ].map((userDetails) => {
   return new User(userDetails)
 })
+
