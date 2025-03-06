@@ -1,143 +1,27 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Create a Post</title>
-  <style>
-    /* Basic styles for the form and posts */
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #f0f0f0;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      padding: 20px;
-    }
+<html>
+    <head>
+        <title>Bloggo</title>   
+        
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        
+        <link rel="stylesheet" href="styles/shared/general.css">
+        <link rel="stylesheet" href="styles/shared/header.css">
+        <link rel="stylesheet" href="styles/shared/sidebar.css">
+        <link rel="stylesheet" href="styles/shared/profile-summary.css">
+        <link rel="stylesheet" href="styles/shared/post-preview.css">
+        <link rel="stylesheet" href="styles/shared/like-dislike-shared.css">
+        <link rel="stylesheet" href="styles/shared/post-setting.css">
+        <link rel="stylesheet" href="styles/pages/error.css">
+        <link rel="stylesheet" href="styles/shared/user-following-follower.css">
+    </head>
+    <body>
 
-    .post-container {
-      width: 100%;
-      max-width: 600px;
-      margin-top: 20px;
-    }
-
-    .post-form {
-      display: flex;
-      flex-direction: column;
-      width: 100%;
-      margin-bottom: 20px;
-    }
-
-    textarea {
-      padding: 10px;
-      font-size: 16px;
-      border-radius: 5px;
-      border: 1px solid #ccc;
-      min-height: 100px;
-    }
-
-    button {
-      margin-top: 10px;
-      padding: 10px;
-      background-color: #4CAF50;
-      color: white;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-    }
-
-    button:disabled {
-      background-color: grey;
-      cursor: not-allowed;
-    }
-
-    .post {
-      background-color: white;
-      padding: 15px;
-      margin: 10px 0;
-      border-radius: 5px;
-      border: 1px solid #ddd;
-    }
-
-  </style>
-</head>
-<body>
-
-  <h1>Create a New Post</h1>
-
-  <!-- Post Form -->
-  <div class="post-form">
-    <textarea id="postContent" placeholder="Write something..." rows="4"></textarea>
-    <button id="createPostBtn" disabled>Create Post</button>
-  </div>
-
-  <!-- Post Display -->
-  <div class="post-container" id="postContainer">
-    <!-- Posts will appear here -->
-  </div>
-
-  <script>
-    // Function to display posts on the page
-    function displayPosts() {
-      const postContainer = document.getElementById('postContainer');
-      const posts = JSON.parse(localStorage.getItem('posts')) || []; // Get posts from localStorage
-
-      postContainer.innerHTML = ''; // Clear the container
-
-      posts.forEach((post, index) => {
-        const postElement = document.createElement('div');
-        postElement.classList.add('post');
-        postElement.textContent = post.content;
-        postContainer.appendChild(postElement);
-      });
-    }
-
-    // Enable or disable the "Create Post" button
-    document.getElementById('postContent').addEventListener('input', function() {
-      const content = document.getElementById('postContent').value;
-      const createPostBtn = document.getElementById('createPostBtn');
-      createPostBtn.disabled = content.trim() === ''; // Enable button if content is non-empty
-    });
-
-    // Handle post creation
-    document.getElementById('createPostBtn').addEventListener('click', function() {
-      const content = document.getElementById('postContent').value;
-
-      if (content.trim() !== '') {
-        const newPost = { content: content };
-
-        // Get posts from localStorage or use an empty array if none exist
-        const posts = JSON.parse(localStorage.getItem('posts')) || [];
-
-        // Add the new post to the array
-        posts.push(newPost);
-
-        // Save posts back to localStorage
-        localStorage.setItem('posts', JSON.stringify(posts));
-
-        // Clear the textarea and disable the button
-        document.getElementById('postContent').value = '';
-        document.getElementById('createPostBtn').disabled = true;
-
-        // Display the updated posts
-        displayPosts();
-      }
-    });
-
-    // Initial display of posts when the page loads
-    window.onload = function() {
-      displayPosts();
-    };
-  </script>
-
-</body>
+      <div class="js-user-followings-followers-texts-container user-followings-followers-texts-container">
+        <a class="js-back-button">
+          <img class="back-button-image" src="images/icons/back-icon.png">
+        </a>
+      </div>
+      
+    </body>
 </html>
-
-<div class="error-div">
-  <p class="error-text">
-    Sorry but it seems like an Error has occured!
-    <a class="error-button" href="blog.html">
-      <button>Restart by clcicking this button!</button>
-    </a>
-  </p>
-</div>

@@ -19,6 +19,8 @@
   background-color: rgb(29, 155, 240);
   border: 1px solid black;
   border-radius: 8px;
+  left: 50%; /* Move the left edge to the center */
+  transform: translateX(-50%); /* Move the element left by 50% of its own width */
 }
 
 .post-title {
@@ -44,13 +46,6 @@
   border: 1px solid black;
   cursor: pointer;
   color: white;
-}
-
-.home-section-shadowed {
-  height: 100%;
-  width: 100%;
-  opacity: 0.28;
-  pointer-events: none;
 }
 
 body {

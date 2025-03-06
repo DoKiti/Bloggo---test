@@ -1,9 +1,10 @@
 import {Post, posts} from "../data/posts.js";
 import {users} from "../data/users.js";
-import { backButtonDirectory } from "./utils/back-button-href.js";
+import { backButtonDirectory, whiteSpaceGoBack } from "./utils/back-button-href.js";
 import { generateUniquePostId } from "./utils/unique-post-id.js";
 
 backButtonDirectory()
+whiteSpaceGoBack()
 
 const authorId = '1';
 

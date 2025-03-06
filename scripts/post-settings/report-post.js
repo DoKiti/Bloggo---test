@@ -4,6 +4,7 @@ import { getPostIdFromUrl } from "../utils/gettings-posts-and-users.js";
 
 
 backButtonDirectory();
+whiteSpaceGoBack();
 
 const accusorId = '1';
 

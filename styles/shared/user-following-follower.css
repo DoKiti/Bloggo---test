@@ -1,0 +1,80 @@
+.user-followings-followers-container-everything {
+  width: 70%;
+  position: absolute;
+  height: 380px;
+  top: 120px;
+  left: 50%; /* Move the left edge to the center */
+  transform: translateX(-50%); /* Move the element left by 50% of its own width */
+  background-color: rgb(29, 155, 240);
+  border: 1px solid rgb(77, 77, 77);
+  border-radius: 18px;
+  display: none;
+  flex-direction: column;
+}
+
+.user-followings-followers-texts-container {
+  position: relative;
+  display: flex;
+  height: 75px;
+  font-size: 28px;
+  align-items: center;
+  justify-content: center;
+}
+
+.user-followings-followers-texts {
+  font-size: 22px;
+  font-weight: bold;
+  color: white;
+  margin: 0;
+}
+
+.user-followings-followers-container {
+  width: 100%;
+  height: 100%;
+  background-color: rgb(221, 221, 221);
+  overflow-y: auto;
+  border-bottom-right-radius: 18px;
+  border-bottom-left-radius: 18px;
+}
+
+.user-following-follower-container {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  margin: 8px;
+  padding: 8px;
+  background-color: white;
+  border: 1px solid rgb(226, 226, 226);
+  border-radius: 18px;
+}
+
+.user-following-follower-profile-picture {
+  height: 80px;
+  border: none;
+  border-radius: 40px;
+}
+
+.user-following-follower-username-nickname-bio-container {
+  display: flex;
+  flex-direction: column;
+  margin-left: 18px;
+  align-self: flex-start;
+  padding-top: 5px;
+}
+
+.user-following-follower-nickname, .user-following-follower-username, .user-following-follower-bio {
+  margin: 0;
+}
+
+.user-following-follower-nickname {
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.user-following-follower-bio {
+  margin-top: 8px;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}

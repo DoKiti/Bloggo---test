@@ -14,87 +14,92 @@
         <link rel="stylesheet" href="styles/pages/error.css">
     </head>
     <body>
-        <header class="header">
-            <div class="left-section">
-                <img class="js-logo logo" src="images/icons/logo.png">
-            </div>
-            <div class="middle-section">
-                <p class="header-text">
-                    Chat with others!
-                </p>
-            </div>
-            <div class="right-section">
-                <button class="create-button">
-                    <img class="create-image" src="images/icons/create.png">
-                    <p class="create-button-text">
-                        Create
-                    </p>
-                </button>                
-                <div class="notifications-container">
-                    <img class="notifications-icon" src="images/icons/notifications.svg">
-                    <div class="tooltip">
-                        Notifications
-                    </div>
-                </div>
-                <img class="account-profile-picture" src="images/icons/pfp.jpg">
-            </div>
-        </header>
 
-        <nav class="sidebar">
-            <div class="sidebar-button">
-                <img src="images/icons/non-page-home.png">
-                <p>
-                    Home
-                </p>
-            </div>
-            <div class="sidebar-button">
-                <img src="images/icons/non-page-saved.png">
-                <p>
-                    Saved
-                </p> 
-            </div>
-            <div class="sidebar-button">
-                <img src="images/icons/non-page-followed.png">
-                <p>
-                    Followed
-                </p>
-            </div>
-        </nav>
+      <div class="js-above-everything above-everything">
+        <div class="everything-of-body shadowed-background">
+          <header class="header">
+              <div class="left-section">
+                  <img class="js-logo logo" src="images/icons/logo.png">
+              </div>
+              <div class="middle-section">
+                  <p class="header-text">
+                      Chat with others!
+                  </p>
+              </div>
+              <div class="right-section">
+                  <button class="create-button">
+                      <img class="create-image" src="images/icons/create.png">
+                      <p class="create-button-text">
+                          Create
+                      </p>
+                  </button>                
+                  <div class="notifications-container">
+                      <img class="notifications-icon" src="images/icons/notifications.svg">
+                      <div class="tooltip">
+                          Notifications
+                      </div>
+                  </div>
+                  <img class="account-profile-picture" src="images/icons/pfp.jpg">
+              </div>
+          </header>
+
+          <nav class="sidebar">
+              <div class="sidebar-button">
+                  <img src="images/icons/non-page-home.png">
+                  <p>
+                      Home
+                  </p>
+              </div>
+              <div class="sidebar-button">
+                  <img src="images/icons/non-page-saved.png">
+                  <p>
+                      Saved
+                  </p> 
+              </div>
+              <div class="sidebar-button">
+                  <img src="images/icons/non-page-followed.png">
+                  <p>
+                      Followed
+                  </p>
+              </div>
+          </nav>
 
 
-        <main class="js-main-section main-section">   
+          <main class="js-main-section main-section">           
+              <div class="js-home-section home-section ">
 
-          <div class="report-post-form">
-            <a class="js-back-button">
-                <img class="back-button-image" src="images/icons/back-icon.png">
-            </a>
-            
-            <div class="report-post-container">
-              <h1 class="report-post-text">Why are you reporting post</h1>
-            </div>
+              </div>
+              
+          </main>
+        </div>
+      </div>
 
-            <select class="reasoning-categories" name="Reasoning" id="reasoningCategories">
-            <option value="" selected disabled>Select your reasonings</option>
-              <option value="discrimination">Discrimination</option>
-              <option value="harrasment">Harrasment</option>
-              <option value="inappropriate">Inappropriate</option>
-              <option value="hatefullContent">Hatefull content</option>
-              <option value="others">Others</option>
-            </select>
-            <textarea class="reasoning" id="reasoningContexts" placeholder="Optional context" rows="6"></textarea>
-            <button class="report-post-button" id="reportPostButton" disabled>Create Post</button>
-          </div>
+      
+      <div class="report-post-form">
+        <a class="js-back-button">
+            <img class="back-button-image" src="images/icons/back-icon.png">
+        </a>
         
-          <div class="home-section-shadowed">     
-            <div class="js-home-section home-section ">
+        <div class="report-post-container">
+          <h1 class="report-post-text">Why are you reporting post</h1>
+        </div>
 
-            </div>
-          </div>
-            
-        </main>
+        <select class="reasoning-categories" name="Reasoning" id="reasoningCategories">
+        <option value="" selected disabled>Select your reasonings</option>
+          <option value="discrimination">Discrimination</option>
+          <option value="harrasment">Harrasment</option>
+          <option value="inappropriate">Inappropriate</option>
+          <option value="hatefullContent">Hatefull content</option>
+          <option value="others">Others</option>
+        </select>
+        <textarea class="reasoning" id="reasoningContexts" placeholder="Optional context" rows="6"></textarea>
+        <button class="report-post-button" id="reportPostButton" disabled>Create Post</button>
+      </div>
 
-        <script type="module" src="scripts/./post-settings/report-post.js"></script>
-        <script type="module" src="scripts/home.js"></script>
-        <script type="module" src="scripts/utils/check-header.js"></script>
+
+
+      <script type="module" src="scripts/./post-settings/report-post.js"></script>
+      <script type="module" src="scripts/home.js"></script>
+      <script type="module" src="scripts/utils/check-header.js"></script>
     </body>
 </html>

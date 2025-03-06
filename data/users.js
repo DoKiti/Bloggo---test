@@ -31,7 +31,7 @@ export let users = JSON.parse(localStorage.getItem('users')) || [
     nickname: 'Dokii',
     bio: "Passionate about technology, design, and creativity, as personal growth, and digital innovations. Join me on a journey of exploration and inspiration!",
     postsIds: ["1740217540043-254", "1740217626532-114"],
-    followersIds: ['2', '8'],
+    followersIds: ['2', '1', '2', '1', '2', '1'],
     followingsIds: ['2', '1'],
     likes: 37,
     savedPostsIds: ['1740217626532-114']
