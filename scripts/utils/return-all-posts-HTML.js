@@ -45,27 +45,27 @@ export function displayAllPosts(certainPostsData) {
                     <a class="direct-to-post" href="post.html">
                         <div class="white-space"></div>
                     </a>
-                    <div class="liked-container">
-                        <img class="js-like-image" src="images/icons/like-button.png">
-                        <p class="js-likes-count">
+                    <div class="liked-container" data-liked-container-post-id="${postDetails.postId}">
+                        <img class="js-like-image-${postDetails.postId}" src="images/icons/like-button.png">
+                        <p class="js-likes-count-${postDetails.postId}">
                             ${postDetails.ratings.likes}
                         </p>
                     </div>
                     <div class="disliked-container">
-                        <img class="js-dislike-image" src="images/icons/dislike-button.png">
-                        <p class="js-dislikes-count">
+                        <img class="js-dislike-image-${postDetails.postId}" src="images/icons/dislike-button.png">
+                        <p class="js-dislikes-count-${postDetails.postId}">
                             ${postDetails.ratings.dislikes}
                         </p>
                     </div>
                     <div class="saved-container">
-                        <img class="js-save-image" src="images/icons/non-page-saved.png">
-                        <p class="js-saves-count">
+                        <img class="js-save-image-${postDetails.postId}" src="${checkHasItNotBeenSaved(postDetails.postId) ? 'images/icons/non-page-saved.png' : 'images/icons/on-page-saved.png'}">
+                        <p class="js-saves-count-${postDetails.postId}">
                             ${postDetails.ratings.saves}
                         </p>
                     </div>
                     <div class="comments-container">
-                      <img class="js-comment-image" src="images/icons/comments.png">
-                      <p class="js-comments-count">
+                      <img class="js-comment-image-${postDetails.postId}" src="images/icons/comments.png">
+                      <p class="js-comments-count-${postDetails.postId}">
                             ${postDetails.ratings.comments}
                       </p>
                   </div>

@@ -36,15 +36,15 @@ export function postSetting() {
         savePost(postId)
         document.getElementById(`save-option-${postId}`)
           .innerHTML = 'Unsave Post'
-        document.querySelector('.js-save-image').src = 'images/icons/on-page-saved.png';
+        document.querySelector(`.js-save-image-${postId}`).src = 'images/icons/on-page-saved.png';
       } else {
         alert(`Unsave post clicked for Post ID: ${postId}`); // DELETING LATER
         unsavePost(postId)
         document.getElementById(`save-option-${postId}`)
           .innerHTML = 'Save for later'
-        document.querySelector('.js-save-image').src = 'images/icons/non-page-saved.png';
+        document.querySelector(`.js-save-image-${postId}`).src = 'images/icons/non-page-saved.png';
       }
-      document.querySelector('.js-saves-count').innerHTML = postObj.ratings.saves
+      document.querySelector(`.js-saves-count-${postId}`).innerHTML = postObj.ratings.saves
       optionsMenu.style.display = 'none'; // Close the menu after action
     });
 

@@ -24,8 +24,16 @@ export function displayAllUserPosts(user) {
     }
   });
 
+  const sortedPosts = postsArray.sort((a, b) => { 
+    // Parse the timestamps from postId and compare them
+    const timestampA = parseInt(a.postId.split('-')[0], 10);
+    const timestampB = parseInt(b.postId.split('-')[0], 10);
+    
+    return timestampB - timestampA;
+  });
+
   // Now, pass the posts array to displayAllPosts
-  let userPostsHTML = displayAllPosts(postsArray);
+  let userPostsHTML = displayAllPosts(sortedPosts);
 
   // Insert the HTML into the DOM
   document.querySelector(".js-user-posts").innerHTML = userPostsHTML;

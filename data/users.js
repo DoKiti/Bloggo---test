@@ -8,6 +8,8 @@ class User {
   followingsIds;
   likes;
   savedPostsIds;
+  likedPostsIds
+  dislikedPostsIds
 
   constructor(userDetails) {
     this.userId = userDetails.userId;
@@ -19,7 +21,9 @@ class User {
     this.followersIds = userDetails.followersIds || [];
     this.followingsIds = userDetails.followingsIds || [];
     this.likes = userDetails.likes || 0;
-    this.savedPostsIds = userDetails.savedPostsIds
+    this.savedPostsIds = userDetails.savedPostsIds || [];
+    this.likedPostsIds = userDetails.likedPostsIds || [];
+    this.dislikedPostsIds = userDetails.dislikedPostsIds || [];
   }
 }
 
@@ -34,7 +38,9 @@ export let users = JSON.parse(localStorage.getItem('users')) || [
     followersIds: ['2', '1', '2', '1', '2', '1'],
     followingsIds: ['2', '1'],
     likes: 37,
-    savedPostsIds: ['1740217626532-114']
+    savedPostsIds: ['1740217626532-114'],
+    likedPostsIds: ['1740217626532-114'],
+    dislikedPostsIds: ['1740217626532-114']
   },   {
     userId: '2',
     profilePicture: 'images/profile-pictures/profile2.jpg',
@@ -45,7 +51,9 @@ export let users = JSON.parse(localStorage.getItem('users')) || [
     followersIds: ['1', '3', '8', '9', '17'],
     followingsIds: ['1'],
     likes: 12,
-    savedPostsIds: ['1740217626532-114']
+    savedPostsIds: ['1740217626532-114'],
+    likedPostsIds: ['1740217626532-114'],
+    dislikedPostsIds: ['1740217626532-114']
   }, {
     userId: '3',
     profilePicture: 'images/profile-pictures/default-profile.jpg',
@@ -56,7 +64,9 @@ export let users = JSON.parse(localStorage.getItem('users')) || [
     followersIds: [],
     followingsIds: ['1', '2'],
     likes: 0,
-    savedPostsIds: []
+    savedPostsIds: [],
+    likedPostsIds: [],
+    dislikedPostsIds: []
   }
 ].map((userDetails) => {
   return new User(userDetails)

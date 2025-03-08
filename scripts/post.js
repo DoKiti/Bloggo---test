@@ -1,5 +1,6 @@
 import {posts} from '../data/posts.js';
 import { displayError } from './displayError.js';
+import { checkHasItNotBeenSaved } from './post-settings/save.js';
 import { backButtonDirectory } from './utils/back-button-href.js';
 
 // Function to get the value of a URL parameter
@@ -38,7 +39,7 @@ function displayPostDetails(post) {
             </p>
             
             <div class="post-preview-ratings post-ratings js-post-ratings">
-              <div class="liked-container">
+              <div class="liked-container" data-liked-container-post-id="${post.postId}">
                   <img src="images/icons/like-button.png">
                   <p class="likes">
                     ${post.ratings.likes} 
@@ -51,7 +52,7 @@ function displayPostDetails(post) {
                   </p>
               </div>
               <div class="saved-container">
-                  <img src="images/icons/non-page-saved.png">
+                  <img src="${checkHasItNotBeenSaved(post.postId) ? 'images/icons/non-page-saved.png' : 'images/icons/on-page-saved.png'}">
                   <p class="saves">
                     ${post.ratings.saves} 
                   </p>
@@ -64,7 +65,6 @@ function displayPostDetails(post) {
             </div>
           </div>`        
 }
-
 
 
 document.addEventListener('DOMContentLoaded', async () => {
