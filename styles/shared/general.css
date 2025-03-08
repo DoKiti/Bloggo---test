@@ -41,7 +41,7 @@ textarea {
   left: 8px;
   height: 35px;
   border-radius: 35px;
-  z-index: 999999;
+  z-index: 99;
 }
 
 
@@ -59,6 +59,15 @@ textarea {
   background-color: white;
   opacity: 1;
 }
+
+.nothing-here-texts {
+  font-size: 25px;
+  font-weight: bold;
+  text-align: center;
+  margin-top: 50px;
+  margin-inline: 18px;
+}
+
 
   @media (max-width: 1000px) {
     .main-section {

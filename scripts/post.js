@@ -62,8 +62,7 @@ function displayPostDetails(post) {
                   ${post.ratings.comments}    
                 </p>
             </div>
-          </div>`
-        
+          </div>`        
 }
 
 
@@ -73,7 +72,12 @@ document.addEventListener('DOMContentLoaded', async () => {
   const post = getPostById(postId); // Find the post by its ID
 
   if (post) {
-    // If the post is found, display its details
+    // If the post is found then
+
+    // update title with the post's title
+    document.querySelector('title').innerHTML = `${post.postTitle} - Bloggo`; 
+    
+    // display its details
     await displayPostDetails(post);
 
     backButtonDirectory()

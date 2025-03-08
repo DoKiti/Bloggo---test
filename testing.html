@@ -8,20 +8,74 @@
         <link rel="stylesheet" href="styles/shared/general.css">
         <link rel="stylesheet" href="styles/shared/header.css">
         <link rel="stylesheet" href="styles/shared/sidebar.css">
-        <link rel="stylesheet" href="styles/shared/profile-summary.css">
         <link rel="stylesheet" href="styles/shared/post-preview.css">
         <link rel="stylesheet" href="styles/shared/like-dislike-shared.css">
         <link rel="stylesheet" href="styles/shared/post-setting.css">
         <link rel="stylesheet" href="styles/pages/error.css">
-        <link rel="stylesheet" href="styles/shared/user-following-follower.css">
     </head>
-    <body>
+    <body> 
+      <div class="everything-of-body">
+        <header class="header">
+          <div class="left-section">
+              <img class="js-logo logo" src="images/icons/logo.png">
+          </div>
+          <div class="middle-section">
+              <p class="header-text">
+                  Chat with others!
+              </p>
+          </div>
+          <div class="right-section">
+              <a href="creating-post.html">
+                  <button class="create-button">
+                      <img class="create-image" src="images/icons/create.png">
+                      <p class="create-button-text">
+                          Create
+                      </p>
+                  </button>        
+              </a>        
+              <div class="notifications-container">
+                  <img class="notifications-icon" src="images/icons/notifications.svg">
+                  <div class="tooltip">
+                      Notifications
+                  </div>
+              </div>
+              <img class="account-profile-picture" src="images/icons/pfp.jpg">
+          </div>
+        </header>
 
-      <div class="js-user-followings-followers-texts-container user-followings-followers-texts-container">
-        <a class="js-back-button">
-          <img class="back-button-image" src="images/icons/back-icon.png">
-        </a>
+        <nav class="sidebar">
+            <div class="js-home-button-in-home sidebar-button">
+                <img src="images/icons/on-page-home.png">
+                <p>
+                    Home
+                </p>
+            </div>
+            <a href="saved.html">
+                <div class="sidebar-button">
+                    <img src="images/icons/non-page-saved.png">
+                    <p>
+                        Saved
+                    </p> 
+                </div>
+            </a>
+            <a href="followed.html">
+              <div class="sidebar-button">
+                  <img src="images/icons/non-page-followed.png">
+                  <p>
+                      Followed
+                  </p>
+              </div>
+            </a>
+        </nav>
+
+
+        <main class="js-main-section js-home-section home-section main-section">
+            
+        </main>
       </div>
-      
+
+
+         <script type="module" src="scripts/home.js"></script>
+         <script type="module" src="scripts/utils/check-header.js"></script>
     </body>
 </html>

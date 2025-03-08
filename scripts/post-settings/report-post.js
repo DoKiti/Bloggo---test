@@ -1,5 +1,5 @@
 import {ReportedPost, reportedPosts} from "../../data/reports.js";
-import { backButtonDirectory } from "../utils/back-button-href.js";
+import { backButtonDirectory, whiteSpaceGoBack } from "../utils/back-button-href.js";
 import { getPostIdFromUrl } from "../utils/gettings-posts-and-users.js";
 
 

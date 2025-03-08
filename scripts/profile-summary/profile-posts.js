@@ -12,6 +12,7 @@ export function displayAccesories(user) {
                 </p>
                 `
 }
+
 export function displayAllUserPosts(user) {
   let postsArray = [];
 

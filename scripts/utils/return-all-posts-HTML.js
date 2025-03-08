@@ -1,7 +1,14 @@
-export function displayAllPosts(cetainPostsData) {
-  let postsHTML = "";
+import { checkHasItNotBeenSaved } from "../post-settings/save.js";
 
-  cetainPostsData.forEach((postDetails) => {
+export function displayAllPosts(certainPostsData) {
+  let postsHTML = "";
+  
+  if(certainPostsData.length === 0) {
+    console.log
+    return `<div class="nothing-here-texts">Sorry but it seems like there is nothing here!</div>`
+  }
+
+  certainPostsData.forEach((postDetails) => {
     postsHTML += `
             <div class="post-container-preview">
                 <div class="top-of-post-preview">
@@ -16,7 +23,7 @@ export function displayAllPosts(cetainPostsData) {
                     <img class="post-setting-icon" src="../images/icons/3-dots.png">
                     <div class="options-menu js-options-menu">
                         <p role="button" id="delete-option-${postDetails.postId}">Delete</p>
-                        <p role="button" id="save-option-${postDetails.postId}" class="save-post-button">Save for later</p>
+                        <p role="button" id="save-option-${postDetails.postId}" class="save-post-button">${checkHasItNotBeenSaved(postDetails.postId) ? 'Save for later' : 'Unsave Post'}</p>
                         <p role="button" id="report-option-${postDetails.postId}">Report</p>
                     </div>
                   </div>
@@ -39,26 +46,26 @@ export function displayAllPosts(cetainPostsData) {
                         <div class="white-space"></div>
                     </a>
                     <div class="liked-container">
-                        <img src="images/icons/like-button.png">
-                        <p>
+                        <img class="js-like-image" src="images/icons/like-button.png">
+                        <p class="js-likes-count">
                             ${postDetails.ratings.likes}
                         </p>
                     </div>
                     <div class="disliked-container">
-                        <img src="images/icons/dislike-button.png">
-                        <p>
+                        <img class="js-dislike-image" src="images/icons/dislike-button.png">
+                        <p class="js-dislikes-count">
                             ${postDetails.ratings.dislikes}
                         </p>
                     </div>
                     <div class="saved-container">
-                        <img src="images/icons/non-page-saved.png">
-                        <p>
-                            ${postDetails.ratings.saves} <!-- Fixed to 'saves' instead of 'saved' -->
+                        <img class="js-save-image" src="images/icons/non-page-saved.png">
+                        <p class="js-saves-count">
+                            ${postDetails.ratings.saves}
                         </p>
                     </div>
                     <div class="comments-container">
-                      <img src="images/icons/comments.png">
-                      <p>
+                      <img class="js-comment-image" src="images/icons/comments.png">
+                      <p class="js-comments-count">
                             ${postDetails.ratings.comments}
                       </p>
                   </div>

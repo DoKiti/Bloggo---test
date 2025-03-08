@@ -46,8 +46,18 @@ export let users = JSON.parse(localStorage.getItem('users')) || [
     followingsIds: ['1'],
     likes: 12,
     savedPostsIds: ['1740217626532-114']
+  }, {
+    userId: '3',
+    profilePicture: 'images/profile-pictures/default-profile.jpg',
+    username: 'yeri_x',
+    nickname: 'yeri',
+    bio: "Kim Yeri~",
+    postsIds: [],
+    followersIds: [],
+    followingsIds: ['1', '2'],
+    likes: 0,
+    savedPostsIds: []
   }
 ].map((userDetails) => {
   return new User(userDetails)
 })
-
