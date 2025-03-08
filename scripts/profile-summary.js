@@ -6,6 +6,7 @@ import { backButtonDirectory, whiteSpaceReload } from "./utils/back-button-href.
 import { followButton, checkFollowButton } from "./profile-summary/follow-button.js";
 import { renderUserFollowers } from "./profile-summary/user-followers.js";
 import { renderUserFollowings } from "./profile-summary/user-followings.js";
+import { clickedLikesDislikes } from "./posts.js/like-dislike.js";
 
 backButtonDirectory()
 
@@ -20,6 +21,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     displayAccesories(user);
     displayAllUserPosts(user);
     followButton(userId);
+    clickedLikesDislikes();
 
     document.querySelector('.js-user-followers-count').addEventListener('click', () => {
       document.querySelector(".user-followings-followers-container-everything").style.display = 'flex';

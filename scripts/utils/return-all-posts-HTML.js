@@ -1,4 +1,7 @@
+import { user } from "../../data/user.js";
 import { checkHasItNotBeenSaved } from "../post-settings/save.js";
+import { checkDisliked, checkLiked } from "../posts.js/like-dislike.js";
+
 
 export function displayAllPosts(certainPostsData) {
   let postsHTML = "";
@@ -46,13 +49,13 @@ export function displayAllPosts(certainPostsData) {
                         <div class="white-space"></div>
                     </a>
                     <div class="liked-container" data-liked-container-post-id="${postDetails.postId}">
-                        <img class="js-like-image-${postDetails.postId}" src="images/icons/like-button.png">
+                        <img class="js-like-image-${postDetails.postId}" src="${checkLiked(user, postDetails.postId) ? 'images/icons/clicked-like.png' : 'images/icons/like-button.png'}">
                         <p class="js-likes-count-${postDetails.postId}">
                             ${postDetails.ratings.likes}
                         </p>
                     </div>
-                    <div class="disliked-container">
-                        <img class="js-dislike-image-${postDetails.postId}" src="images/icons/dislike-button.png">
+                    <div class="disliked-container" data-disliked-container-post-id="${postDetails.postId}">
+                        <img class="js-dislike-image-${postDetails.postId}" src="${checkDisliked(user, postDetails.postId) ? 'images/icons/clicked-dislike.png' : 'images/icons/dislike-button.png'}">
                         <p class="js-dislikes-count-${postDetails.postId}">
                             ${postDetails.ratings.dislikes}
                         </p>

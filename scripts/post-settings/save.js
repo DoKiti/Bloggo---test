@@ -77,7 +77,9 @@ export function checkHasItNotBeenSaved(postId) {
     }
   })
 
+  /* LATER
   console.log(`${postId} with ${hasItNotBeenSaved}`)
+  */
 
   return hasItNotBeenSaved
 }

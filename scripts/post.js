@@ -1,6 +1,8 @@
 import {posts} from '../data/posts.js';
+import { user } from '../data/user.js';
 import { displayError } from './displayError.js';
 import { checkHasItNotBeenSaved } from './post-settings/save.js';
+import { checkDisliked, checkLiked, clickedLikesDislikes } from './posts.js/like-dislike.js';
 import { backButtonDirectory } from './utils/back-button-href.js';
 
 // Function to get the value of a URL parameter
@@ -40,21 +42,21 @@ function displayPostDetails(post) {
             
             <div class="post-preview-ratings post-ratings js-post-ratings">
               <div class="liked-container" data-liked-container-post-id="${post.postId}">
-                  <img src="images/icons/like-button.png">
-                  <p class="likes">
-                    ${post.ratings.likes} 
+                  <img class="js-like-image-${post.postId}" src="${checkLiked(user, post.postId) ? 'images/icons/clicked-like.png' : 'images/icons/like-button.png'}">
+                  <p class="js-likes-count-${post.postId}">
+                      ${post.ratings.likes}
                   </p>
               </div>
-              <div class="disliked-container">
-                  <img src="images/icons/dislike-button.png">
-                  <p class="dislikes">
-                    ${post.ratings.dislikes} 
+              <div class="disliked-container" data-disliked-container-post-id="${post.postId}">
+                  <img class="js-dislike-image-${post.postId}" src="${checkDisliked(user, post.postId) ? 'images/icons/clicked-dislike.png' : 'images/icons/dislike-button.png'}">
+                  <p class="js-dislikes-count-${post.postId}">
+                      ${post.ratings.dislikes}
                   </p>
               </div>
               <div class="saved-container">
-                  <img src="${checkHasItNotBeenSaved(post.postId) ? 'images/icons/non-page-saved.png' : 'images/icons/on-page-saved.png'}">
-                  <p class="saves">
-                    ${post.ratings.saves} 
+                  <img class="js-save-image-${post.postId}" src="${checkHasItNotBeenSaved(post.postId) ? 'images/icons/non-page-saved.png' : 'images/icons/on-page-saved.png'}">
+                  <p class="js-saves-count-${post.postId}">
+                      ${post.ratings.saves}
                   </p>
               </div>
               <div class="comments-container">
@@ -81,6 +83,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     await displayPostDetails(post);
 
     backButtonDirectory()
+    clickedLikesDislikes();
 
   } else {
     // If no post is found with that ID, display an error or a 404 message

@@ -39,7 +39,7 @@ export let posts = JSON.parse(localStorage.getItem('posts')) || [
     texts: "Snow foxes, also known as Arctic foxes, are remarkable creatures perfectly adapted to the harsh, frozen environments of the Arctic. These small mammals have a thick, insulating coat that changes color with the seasons—pure white in winter to blend with the snow and brown or grey during summer to match the tundra’s rocky landscape. This fur not only keeps them warm but also helps them camouflage from predators and prey alike. Arctic foxes are highly resilient hunters, feeding on small mammals, birds, and fish. During the winter, they can survive in extreme cold by burrowing into the snow to keep warm or huddling with family members. They also have an extraordinary ability to find food beneath thick snow, using their keen sense of hearing to locate prey. Socially, these foxes form strong monogamous pairs that raise their pups in dens. Their role in maintaining the health of the Arctic ecosystem is vital, as they help control the populations of smaller animals and even scavenge from larger predators, ensuring the balance of life in the region. Snow foxes are a symbol of the resilience and beauty of the Arctic wilderness.",
     ratings: {
       saves: 13,
-      likes: 1,
+      likes: 8,
       dislikes: 117,
       comments: 218
     },
