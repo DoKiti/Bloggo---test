@@ -33,7 +33,7 @@ export function displayUserDetails(user) {
                     ${checkArrayLength(user.followingsIds)} Followings
                   </a> 
                   <p class="user-likes-count" data-user-likes="${user.userId}">
-                    ${user.likes} Likes
+                    ${user.karmaPoints} Karma
                   </p>
                 </div>
           `;

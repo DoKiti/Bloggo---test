@@ -6,7 +6,7 @@ class User {
   postsIds;
   followersIds;
   followingsIds;
-  likes;
+  karmaPoints;
   savedPostsIds;
   likedPostsIds
   dislikedPostsIds
@@ -20,12 +20,13 @@ class User {
     this.postsIds = userDetails.postsIds || [];
     this.followersIds = userDetails.followersIds || [];
     this.followingsIds = userDetails.followingsIds || [];
-    this.likes = userDetails.likes || 0;
+    this.karmaPoints = userDetails.karmaPoints || 100;
     this.savedPostsIds = userDetails.savedPostsIds || [];
     this.likedPostsIds = userDetails.likedPostsIds || [];
     this.dislikedPostsIds = userDetails.dislikedPostsIds || [];
   }
 }
+
 
 export let users = JSON.parse(localStorage.getItem('users')) || [
   {
@@ -37,9 +38,9 @@ export let users = JSON.parse(localStorage.getItem('users')) || [
     postsIds: ["1740217540043-254", "1740217626532-114"],
     followersIds: ['2', '1', '2', '1', '2', '1'],
     followingsIds: ['2', '1'],
-    likes: 37,
+    karmaPoints: 30063,
     savedPostsIds: ['1740217626532-114'],
-    likedPostsIds: ['1740217626532-114'],
+    likedPostsIds: [],
     dislikedPostsIds: ['1740217626532-114']
   },   {
     userId: '2',
@@ -50,7 +51,7 @@ export let users = JSON.parse(localStorage.getItem('users')) || [
     postsIds: ["1740217672202-142"],
     followersIds: ['1', '3', '8', '9', '17'],
     followingsIds: ['1'],
-    likes: 12,
+    karmaPoints: 666,
     savedPostsIds: ['1740217626532-114'],
     likedPostsIds: ['1740217626532-114'],
     dislikedPostsIds: ['1740217626532-114']
@@ -63,7 +64,7 @@ export let users = JSON.parse(localStorage.getItem('users')) || [
     postsIds: [],
     followersIds: [],
     followingsIds: ['1', '2'],
-    likes: 0,
+    karmaPoints: 0,
     savedPostsIds: [],
     likedPostsIds: [],
     dislikedPostsIds: []

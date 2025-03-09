@@ -6,12 +6,16 @@
 
   posts stuff ==> main priority
     // liked & dislike
-    saves
+    // saves
     comments
 
   notifications
 
   scrolling
+
+  testing(?)
+
+  optimizing
 
   /*
   Pages
