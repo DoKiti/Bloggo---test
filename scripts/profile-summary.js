@@ -7,6 +7,7 @@ import { followButton, checkFollowButton } from "./profile-summary/follow-button
 import { renderUserFollowers } from "./profile-summary/user-followers.js";
 import { renderUserFollowings } from "./profile-summary/user-followings.js";
 import { clickedLikesDislikes } from "./posts.js/like-dislike.js";
+import { clickedSaved } from "./posts.js/saves-post.js";
 
 backButtonDirectory()
 
@@ -22,6 +23,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     displayAllUserPosts(user);
     followButton(userId);
     clickedLikesDislikes();
+    clickedSaved();
 
     document.querySelector('.js-user-followers-count').addEventListener('click', () => {
       document.querySelector(".user-followings-followers-container-everything").style.display = 'flex';

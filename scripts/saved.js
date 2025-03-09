@@ -5,6 +5,7 @@ import { addEventListenerForPostPreviewLinks } from "./utils/event-listeners-lin
 import { scrollToTop } from "./utils/scroll-to-top-button.js";
 import { postSetting } from "./post-settings.js";
 import { clickedLikesDislikes } from './posts.js/like-dislike.js';
+import { clickedSaved } from './posts.js/saves-post.js';
 
 const savedPosts = users[0].savedPostsIds.map((savedPostId) => {
   return posts.find((post) => post.postId === savedPostId);
@@ -32,3 +33,4 @@ document.querySelector('.js-saved-section')
 addEventListenerForPostPreviewLinks();
 postSetting()
 clickedLikesDislikes();
+clickedSaved()

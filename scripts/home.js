@@ -5,6 +5,7 @@ import { addEventListenerForPostPreviewLinks } from "./utils/event-listeners-lin
 import { scrollToTop } from "./utils/scroll-to-top-button.js";
 import { clickedLikesDislikes, likeDislikeStuff } from "./posts.js/like-dislike.js";
 import { user } from "../data/user.js";
+import { clickedSaved } from "./posts.js/saves-post.js";
 
 if(document.querySelector(".js-home-button-in-home")) {
   document.querySelector(".js-home-button-in-home")
@@ -29,3 +30,4 @@ document.querySelector('.js-home-section')
 addEventListenerForPostPreviewLinks();
 postSetting();
 clickedLikesDislikes();
+clickedSaved()

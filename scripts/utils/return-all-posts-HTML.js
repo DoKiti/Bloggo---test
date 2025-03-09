@@ -1,5 +1,5 @@
 import { user } from "../../data/user.js";
-import { checkHasItNotBeenSaved } from "../post-settings/save.js";
+import { checkHasItNotBeenSaved } from "../post-settings/save-post-setting.js";
 import { checkDisliked, checkLiked } from "../posts.js/like-dislike.js";
 
 
@@ -60,7 +60,7 @@ export function displayAllPosts(certainPostsData) {
                             ${postDetails.ratings.dislikes}
                         </p>
                     </div>
-                    <div class="saved-container">
+                    <div class="saved-container" data-saved-container-post-id="${postDetails.postId}">
                         <img class="js-save-image-${postDetails.postId}" src="${checkHasItNotBeenSaved(postDetails.postId) ? 'images/icons/non-page-saved.png' : 'images/icons/on-page-saved.png'}">
                         <p class="js-saves-count-${postDetails.postId}">
                             ${postDetails.ratings.saves}

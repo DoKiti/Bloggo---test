@@ -1,8 +1,9 @@
 import {posts} from '../data/posts.js';
 import { user } from '../data/user.js';
 import { displayError } from './displayError.js';
-import { checkHasItNotBeenSaved } from './post-settings/save.js';
+import { checkHasItNotBeenSaved } from './post-settings/save-post-setting.js';
 import { checkDisliked, checkLiked, clickedLikesDislikes } from './posts.js/like-dislike.js';
+import { clickedSaved } from './posts.js/saves-post.js';
 import { backButtonDirectory } from './utils/back-button-href.js';
 
 // Function to get the value of a URL parameter
@@ -53,7 +54,7 @@ function displayPostDetails(post) {
                       ${post.ratings.dislikes}
                   </p>
               </div>
-              <div class="saved-container">
+              <div class="saved-container" data-saved-container-post-id="${post.postId}">
                   <img class="js-save-image-${post.postId}" src="${checkHasItNotBeenSaved(post.postId) ? 'images/icons/non-page-saved.png' : 'images/icons/on-page-saved.png'}">
                   <p class="js-saves-count-${post.postId}">
                       ${post.ratings.saves}
@@ -78,12 +79,16 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     // update title with the post's title
     document.querySelector('title').innerHTML = `${post.postTitle} - Bloggo`; 
-    
+
     // display its details
     await displayPostDetails(post);
+    
+    console.log(document.querySelector(`.js-saves-count-${postId}`).innerHTML)
+    
 
     backButtonDirectory()
     clickedLikesDislikes();
+    clickedSaved()
 
   } else {
     // If no post is found with that ID, display an error or a 404 message

@@ -30,6 +30,10 @@ export function clickedLikesDislikes() {
         user.likedPostsIds.push(postId)
       }
 
+      if(likesCount !== postObj.ratings.likes) {
+        throw 'wtf';
+      }
+
       document.querySelector(`.js-likes-count-${postId}`).innerHTML = likesCount;
       console.log(`liked: ${user.likedPostsIds}`);
 
@@ -67,14 +71,23 @@ export function clickedLikesDislikes() {
         user.dislikedPostsIds.push(postId)
       }
 
+      if(dislikesCount !== postObj.ratings.dislikes) {
+        throw 'wtf';
+      }
+
       document.querySelector(`.js-dislikes-count-${postId}`).innerHTML = dislikesCount;
       console.log(`disliked: ${user.dislikedPostsIds}`);
 
+      // updating posts data
       const postIndex = posts.findIndex((post) => post.postId === postObj.postId);
-
       posts[postIndex] = postObj;
 
+      // updating users data
+      const userIndex = users.findIndex((u) => u.userId === user.userId);
+      users[userIndex] = user;
+
       localStorage.setItem('posts', JSON.stringify(posts));
+      localStorage.setItem('users', JSON.stringify(users));
       localStorage.setItem('user', JSON.stringify(user));
     })
   })

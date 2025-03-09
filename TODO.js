@@ -5,11 +5,13 @@
     authentication
 
   posts stuff ==> main priority
-    liked & dislike
-    comments
+    // liked & dislike
     saves
+    comments
 
   notifications
+
+  scrolling
 
   /*
   Pages

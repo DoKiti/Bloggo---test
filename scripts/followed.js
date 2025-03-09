@@ -5,6 +5,7 @@ import { addEventListenerForPostPreviewLinks } from "./utils/event-listeners-lin
 import { scrollToTop } from "./utils/scroll-to-top-button.js";
 import { postSetting } from "./post-settings.js";
 import { clickedLikesDislikes } from './posts.js/like-dislike.js';
+import { clickedSaved } from './posts.js/saves-post.js';
 
 
 let followingsPostsArray = [];
@@ -58,3 +59,4 @@ document.querySelector('.js-followed-section')
 addEventListenerForPostPreviewLinks();
 postSetting();
 clickedLikesDislikes();
+clickedSaved();

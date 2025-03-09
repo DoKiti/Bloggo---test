@@ -1,6 +1,7 @@
 import { posts } from "../data/posts.js";
+import { user } from "../data/user.js";
 import { deletePost } from "./post-settings/delete-post.js";
-import { checkHasItNotBeenSaved, savePost, unsavePost } from "./post-settings/save.js";
+import { savedStuff } from "./posts.js/saves-post.js";
 
 
 export function postSetting() {
@@ -30,32 +31,22 @@ export function postSetting() {
     });
 
     // Option actions
+
+    // SAVED Opt
     document.getElementById(`save-option-${postId}`).addEventListener('click', function() {
-      if(checkHasItNotBeenSaved(postId)) {
-        alert(`Save for later clicked for Post ID: ${postId}`); // DELETING LATER
-        savePost(postId)
-        document.getElementById(`save-option-${postId}`)
-          .innerHTML = 'Unsave Post'
-        document.querySelector(`.js-save-image-${postId}`).src = 'images/icons/on-page-saved.png';
-      } else {
-        alert(`Unsave post clicked for Post ID: ${postId}`); // DELETING LATER
-        unsavePost(postId)
-        document.getElementById(`save-option-${postId}`)
-          .innerHTML = 'Save for later'
-        document.querySelector(`.js-save-image-${postId}`).src = 'images/icons/non-page-saved.png';
-      }
-      document.querySelector(`.js-saves-count-${postId}`).innerHTML = postObj.ratings.saves
+      savedStuff(postId)
       optionsMenu.style.display = 'none'; // Close the menu after action
     });
 
 
-
+    // DEL Opt
     document.getElementById(`delete-option-${postId}`).addEventListener('click', function() {
       alert(`Delete clicked for Post ID: ${postId}`);
       deletePost(postId);
       optionsMenu.style.display = 'none'; // Close the menu after action
     });
 
+    // REPORT OPT
     document.getElementById(`report-option-${postId}`).addEventListener('click', function() {
       alert(`Report clicked for Post ID: ${postId}`);
       reportPostDirectory(postId);
