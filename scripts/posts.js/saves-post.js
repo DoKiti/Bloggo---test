@@ -2,7 +2,9 @@ import { posts } from "../../data/posts.js";
 import { user } from "../../data/user.js";
 import { users } from "../../data/users.js";
 import { checkHasItNotBeenSaved } from "../post-settings/save-post-setting.js";
+import { displayingRatingsText } from "../utils/display-ratings-text.js";
 
+// KARMA POINTS NOT WORKING FOR SOME REASON
 
 export function clickedSaved() {
   document.querySelectorAll('.saved-container').forEach((container) => {
@@ -13,13 +15,13 @@ export function clickedSaved() {
   })
 }
 
-
 export function savedStuff(postId) {
-
-  let savesCount = document.querySelector(`.js-saves-count-${postId}`).innerHTML;
+  const savesCountElement = document.querySelector(`.js-saves-count-${postId}`)
+  let savesCount = savesCountElement.dataset.saves;
   const savePostSettingElement = document.getElementById(`save-option-${postId}`)
 
   const postObj = posts.find((post) => post.postId === postId)
+  const authorObj = postObj.author;
 
   // Check if the post exists
   if (!postObj) {
@@ -33,9 +35,10 @@ export function savedStuff(postId) {
 
     console.log(`Save for later clicked for Post ID: ${postId}`); 
 
-    // Increment both savesCount and postObj.ratings.saves
+    // Increment savesCount, postObj.ratings.saves, and author's karma point
     savesCount++
     postObj.ratings.saves++
+    authorObj.karmaPoints+=3
 
     // Ensure synchronization
     if(savesCount !== postObj.ratings.saves) {
@@ -58,9 +61,10 @@ export function savedStuff(postId) {
 
     console.log(`Unsave post clicked for Post ID: ${postId}`);
 
-    // Decrement both savesCount and postObj.ratings.saves
+    // Decrement savesCount, postObj.ratings.saves, and author's karma point
     savesCount--
     postObj.ratings.saves--
+    authorObj.karmaPoints-=3
 
     // Ensure synchronization
     if(savesCount !== postObj.ratings.saves) {
@@ -83,12 +87,15 @@ export function savedStuff(postId) {
 
   }
 
+  // Updating the saves count on the data set
+  savesCountElement.dataset.saves = savesCount
+
   // Update the saves count on the UI
-  document.querySelector(`.js-saves-count-${postId}`).innerHTML = savesCount;
+  savesCountElement.innerHTML = displayingRatingsText(savesCount);
 
   // Console logging changes
+  console.log(`Updated karma points for ${authorObj.userId}: ${authorObj.karmaPoints}`);
   console.log(`savesCount: ${savesCount}\npostObj.ratings.saves: ${postObj.ratings.saves}`)
-  console.log(user.savedPostsIds)
 
   // updating posts data
   const postIndex = posts.findIndex((post) => post.postId === postObj.postId);
@@ -98,6 +105,9 @@ export function savedStuff(postId) {
   const userIndex = users.findIndex((u) => u.userId === user.userId);
   users[userIndex] = user;
 
+  // Updating author's data
+  const authorIndex = users.findIndex((u) => u.userId === authorObj.userId);
+  users[authorIndex].karmaPoints = authorObj.karmaPoints;
 
   // Updating all the changes to localStorage
   localStorage.setItem('posts', JSON.stringify(posts));

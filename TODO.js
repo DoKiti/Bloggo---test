@@ -5,9 +5,10 @@
     authentication
 
   posts stuff ==> main priority
-    // liked & dislike
-    // saves
-    comments
+    Karma points => main priority
+      / liked & dislike
+      / saves
+      comments
 
   notifications
 
@@ -15,7 +16,7 @@
 
   testing(?)
 
-  optimizing
+  optimizing(?)
 
   /*
   Pages

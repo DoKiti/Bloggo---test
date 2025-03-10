@@ -5,6 +5,7 @@ import { checkHasItNotBeenSaved } from './post-settings/save-post-setting.js';
 import { checkDisliked, checkLiked, clickedLikesDislikes } from './posts.js/like-dislike.js';
 import { clickedSaved } from './posts.js/saves-post.js';
 import { backButtonDirectory } from './utils/back-button-href.js';
+import { displayingRatingsText } from './utils/display-ratings-text.js';
 
 // Function to get the value of a URL parameter
 function getPostIdFromUrl() {
@@ -44,26 +45,26 @@ function displayPostDetails(post) {
             <div class="post-preview-ratings post-ratings js-post-ratings">
               <div class="liked-container" data-liked-container-post-id="${post.postId}">
                   <img class="js-like-image-${post.postId}" src="${checkLiked(user, post.postId) ? 'images/icons/clicked-like.png' : 'images/icons/like-button.png'}">
-                  <p class="js-likes-count-${post.postId}">
-                      ${post.ratings.likes}
+                  <p class="js-likes-count-${post.postId}" data-likes="${post.ratings.likes}">
+                      ${displayingRatingsText(post.ratings.likes)}
                   </p>
               </div>
               <div class="disliked-container" data-disliked-container-post-id="${post.postId}">
                   <img class="js-dislike-image-${post.postId}" src="${checkDisliked(user, post.postId) ? 'images/icons/clicked-dislike.png' : 'images/icons/dislike-button.png'}">
-                  <p class="js-dislikes-count-${post.postId}">
-                      ${post.ratings.dislikes}
+                  <p class="js-dislikes-count-${post.postId}" data-dislikes="${post.ratings.dislikes}">
+                      ${displayingRatingsText(post.ratings.dislikes)}
                   </p>
               </div>
               <div class="saved-container" data-saved-container-post-id="${post.postId}">
                   <img class="js-save-image-${post.postId}" src="${checkHasItNotBeenSaved(post.postId) ? 'images/icons/non-page-saved.png' : 'images/icons/on-page-saved.png'}">
-                  <p class="js-saves-count-${post.postId}">
-                      ${post.ratings.saves}
+                  <p class="js-saves-count-${post.postId}" data-saves="${post.ratings.saves}">
+                      ${displayingRatingsText(post.ratings.saves)}
                   </p>
               </div>
               <div class="comments-container">
                 <img src="images/icons/comments.png">
                 <p class="comments">
-                  ${post.ratings.comments}    
+                  ${displayingRatingsText(post.ratings.comments)}    
                 </p>
             </div>
           </div>`        
