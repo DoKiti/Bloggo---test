@@ -3,29 +3,43 @@ import { users } from "../../data/users.js";
 
 const windowLocation = window.location.href;
 
-export function deletePost(postId) {
-  // Filter out the post with the given postId from the posts array
-  const updatedPosts = posts.filter(postObject => postObject.postId !== postId);
+export async function deletePost(postId) {
+  try {
+    // Step 1: Delete the post from the backend (MySQL database)
+    const response = await fetch(`http://localhost:3000/posts/${postId}`, {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    });
 
-  // Update the users' postIds and savedPostsIds by removing the postId
-  const updatedUsers = users.map((userObject) => {
-    // Ensure the user has postIds and filter out the postId
-    if (userObject.postsIds && Array.isArray(userObject.postsIds)) {
-      userObject.postsIds = userObject.postsIds.filter((userPostId) => userPostId !== postId);
+    if (!response.ok) {
+      const errorData = await response.json();
+      throw new Error(errorData.error || 'Failed to delete post from backend');
     }
 
-    // Update the user's savedPostsIds by removing the postId
-    if (userObject.savedPostsIds && Array.isArray(userObject.savedPostsIds)) {
-      userObject.savedPostsIds = userObject.savedPostsIds.filter((savedPostId) => savedPostId !== postId);
-    }
+    console.log('Post successfully deleted from backend.');
 
-    return userObject; // Return the modified userObject
-  });
+    // Step 2: Update localStorage with updated posts and users
+    const updatedPosts = posts.filter(postObject => postObject.postId !== postId);
+    const updatedUsers = users.map(userObject => {
+      if (userObject.postsIds && Array.isArray(userObject.postsIds)) {
+        userObject.postsIds = userObject.postsIds.filter(userPostId => userPostId !== postId);
+      }
+      if (userObject.savedPostsIds && Array.isArray(userObject.savedPostsIds)) {
+        userObject.savedPostsIds = userObject.savedPostsIds.filter(savedPostId => savedPostId !== postId);
+      }
+      return userObject;
+    });
 
-  // Save the updated posts and users to localStorage
-  localStorage.setItem("posts", JSON.stringify(updatedPosts));
-  localStorage.setItem("users", JSON.stringify(updatedUsers));
+    // Step 3: Save to localStorage
+    localStorage.setItem('posts', JSON.stringify(updatedPosts));
+    localStorage.setItem('users', JSON.stringify(updatedUsers));
 
-  // Optionally, redirect to refresh the page or re-render the updated posts list
-  window.location.href = windowLocation;  
+    // Optionally redirect or refresh the page
+    window.location.reload();
+  } catch (error) {
+    console.error('Error deleting post:', error.message);
+    alert('An error occurred while deleting the post. Please try again later.');
+  }
 }

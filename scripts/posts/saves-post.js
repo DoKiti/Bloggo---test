@@ -3,8 +3,7 @@ import { user } from "../../data/user.js";
 import { users } from "../../data/users.js";
 import { checkHasItNotBeenSaved } from "../post-settings/save-post-setting.js";
 import { displayingRatingsText } from "../utils/display-ratings-text.js";
-
-// KARMA POINTS NOT WORKING FOR SOME REASON
+import { updatePostAndUser } from "./clickedUpdate.js";
 
 export function clickedSaved() {
   document.querySelectorAll('.saved-container').forEach((container) => {
@@ -15,12 +14,13 @@ export function clickedSaved() {
   })
 }
 
-export function savedStuff(postId) {
-  const savesCountElement = document.querySelector(`.js-saves-count-${postId}`)
-  let savesCount = savesCountElement.dataset.saves;
-  const savePostSettingElement = document.getElementById(`save-option-${postId}`)
 
-  const postObj = posts.find((post) => post.postId === postId)
+export async function savedStuff(postId) {
+  const savesCountElement = document.querySelector(`.js-saves-count-${postId}`);
+  let savesCount = savesCountElement.dataset.saves;
+  const savePostSettingElement = document.getElementById(`save-option-${postId}`);
+
+  const postObj = posts.find((post) => post.postId === postId);
   const authorObj = postObj.author;
 
   // Check if the post exists
@@ -30,86 +30,64 @@ export function savedStuff(postId) {
   }
 
   // Save or unsave the post based on current state
-  if(checkHasItNotBeenSaved(postId)) {
-    /* Save Post */
-
-    console.log(`Save for later clicked for Post ID: ${postId}`); 
+  if (checkHasItNotBeenSaved(postId)) {
+    // Save Post
+    console.log(`Save for later clicked for Post ID: ${postId}`);
 
     // Increment savesCount, postObj.ratings.saves, and author's karma point
-    savesCount++
-    postObj.ratings.saves++
-    authorObj.karmaPoints+=3
+    savesCount++;
+    postObj.ratings.saves++;
+    authorObj.karmaPoints += 3;
 
     // Ensure synchronization
-    if(savesCount !== postObj.ratings.saves) {
-      throw 'wtf';
+    if (savesCount !== postObj.ratings.saves) {
+      throw 'Data inconsistency between savesCount and postObj.ratings.saves';
     }
-    
+
     // Add postId to user's saved posts Ids
-    user.savedPostsIds.push(postId)
+    user.savedPostsIds.push(postId);
 
     // Update the UI for saved state
-    document.querySelector(`.js-save-image-${postId}`).src = 'images/icons/on-page-saved.png'
+    document.querySelector(`.js-save-image-${postId}`).src = 'images/icons/on-page-saved.png';
 
-    if(savePostSettingElement) {
-      savePostSettingElement
-        .innerHTML = 'Unsave Post'
+    if (savePostSettingElement) {
+      savePostSettingElement.innerHTML = 'Unsave Post';
     }
-
   } else {
-    /* Unsave Post */
-
+    // Unsave Post
     console.log(`Unsave post clicked for Post ID: ${postId}`);
 
     // Decrement savesCount, postObj.ratings.saves, and author's karma point
-    savesCount--
-    postObj.ratings.saves--
-    authorObj.karmaPoints-=3
+    savesCount--;
+    postObj.ratings.saves--;
+    authorObj.karmaPoints -= 3;
 
     // Ensure synchronization
-    if(savesCount !== postObj.ratings.saves) {
-      throw 'wtf';
+    if (savesCount !== postObj.ratings.saves) {
+      throw 'Data inconsistency between savesCount and postObj.ratings.saves';
     }
-    
+
     // Remove postId from user's savedPostsIds array
-    user.savedPostsIds = user.savedPostsIds.filter((savedpostId) => {
-      return !(savedpostId === postId)
-    })
+    user.savedPostsIds = user.savedPostsIds.filter((savedpostId) => savedpostId !== postId);
 
     // Update the UI for unsaved state
-    document.querySelector(`.js-save-image-${postId}`).src = 'images/icons/non-page-saved.png'
+    document.querySelector(`.js-save-image-${postId}`).src = 'images/icons/non-page-saved.png';
 
-    
-    if(savePostSettingElement) {
-      savePostSettingElement  
-        .innerHTML = 'Save for later'
+    if (savePostSettingElement) {
+      savePostSettingElement.innerHTML = 'Save for later';
     }
-
   }
 
   // Updating the saves count on the data set
-  savesCountElement.dataset.saves = savesCount
+  savesCountElement.dataset.saves = savesCount;
 
   // Update the saves count on the UI
   savesCountElement.innerHTML = displayingRatingsText(savesCount);
 
-  // Console logging changes
-  console.log(`Updated karma points for ${authorObj.userId}: ${authorObj.karmaPoints}`);
-  console.log(`savesCount: ${savesCount}\npostObj.ratings.saves: ${postObj.ratings.saves}`)
+  // Update post and user in the backend
+  await updatePostAndUser(postObj, authorObj, user);
 
-  // updating posts data
-  const postIndex = posts.findIndex((post) => post.postId === postObj.postId);
-  posts[postIndex] = postObj;
-
-  // updating users data
-  const userIndex = users.findIndex((u) => u.userId === user.userId);
-  users[userIndex] = user;
-
-  // Updating author's data
-  const authorIndex = users.findIndex((u) => u.userId === authorObj.userId);
-  users[authorIndex].karmaPoints = authorObj.karmaPoints;
-
-  // Updating all the changes to localStorage
+  // Persist changes to localStorage
   localStorage.setItem('posts', JSON.stringify(posts));
   localStorage.setItem('users', JSON.stringify(users));
   localStorage.setItem('user', JSON.stringify(user));
