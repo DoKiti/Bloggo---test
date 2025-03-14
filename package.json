@@ -1,0 +1,25 @@
+{
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.21.2",
+    "mysql": "^2.18.1"
+  },
+  "name": "blog",
+  "version": "1.0.0",
+  "description": "Social Media Website",
+  "main": "db-test.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DoKiti/Bloggo---test.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DoKiti/Bloggo---test/issues"
+  },
+  "homepage": "https://github.com/DoKiti/Bloggo---test#readme"
+}

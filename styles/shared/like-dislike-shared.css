@@ -50,12 +50,12 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-block: 6px;
   margin-right: 28px;
   cursor: pointer;
-  height: 58px;
-  width: 58px;
+  padding-inline: 5px;
   transition: all 0.15s;
-  border-radius: 50%;
+  border-radius: 22%;
 }
 
 .liked-container:hover, .disliked-container:hover, .saved-container:hover, .comments-container:hover {

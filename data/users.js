@@ -8,8 +8,8 @@ class User {
   followingsIds;
   karmaPoints;
   savedPostsIds;
-  likedPostsIds
-  dislikedPostsIds
+  likedPostsIds;
+  dislikedPostsIds;
 
   constructor(userDetails) {
     this.userId = userDetails.userId;
@@ -27,7 +27,7 @@ class User {
   }
 }
 
-
+/*
 export let users = JSON.parse(localStorage.getItem('users')) || [
   {
     userId: '1',
@@ -72,3 +72,34 @@ export let users = JSON.parse(localStorage.getItem('users')) || [
 ].map((userDetails) => {
   return new User(userDetails)
 })
+*/
+
+export let users = []
+
+async function fetchUsers() {
+  try {
+    const response = await fetch('http://localhost:3000/users');
+    if (!response.ok) {
+      throw new Error('Failed to fetch users');
+    }
+    const usersFetched = await response.json();
+    
+    // Log the data to verify it's fetched correctly
+    console.log(usersFetched);
+    
+    // You can now use `users` to display in your front-end
+    usersFetched.forEach(userDetails => {
+      users.push(new User(userDetails));
+    });
+
+  } catch (error) {
+    console.error('Error fetching users:', error);
+  }
+}
+
+// Call the function to fetch users when the page loads
+await fetchUsers();
+
+
+await console.log('users:')
+console.log(users)

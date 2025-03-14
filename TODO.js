@@ -1,14 +1,16 @@
 `TODAY:
-  backend
+  backend ==> main priority
     database 
 
     authentication
 
-  posts stuff ==> main priority
-    Karma points => main priority
-      / liked & dislike
-      / saves
-      comments
+  /*
+  posts stuff 
+    // Karma points
+      // liked & dislike
+      // saves
+      comments(?)
+  */
 
   notifications
 
