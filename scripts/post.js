@@ -2,8 +2,8 @@ import {posts} from '../data/posts.js';
 import { user } from '../data/user.js';
 import { displayError } from './displayError.js';
 import { checkHasItNotBeenSaved } from './post-settings/save-post-setting.js';
-import { checkDisliked, checkLiked, clickedLikesDislikes } from './posts.js/like-dislike.js';
-import { clickedSaved } from './posts.js/saves-post.js';
+import { checkDisliked, checkLiked, clickedLikesDislikes } from './posts/like-dislike.js';
+import { clickedSaved } from './posts/saves-post.js';
 import { backButtonDirectory } from './utils/back-button-href.js';
 import { displayingRatingsText } from './utils/display-ratings-text.js';
 
@@ -71,28 +71,25 @@ function displayPostDetails(post) {
 }
 
 
-document.addEventListener('DOMContentLoaded', async () => {
-  const postId = getPostIdFromUrl(); // Get the postId from the URL
-  const post = getPostById(postId); // Find the post by its ID
 
-  if (post) {
-    // If the post is found then
+const postId = getPostIdFromUrl(); // Get the postId from the URL
+const post = getPostById(postId); // Find the post by its ID
 
-    // update title with the post's title
-    document.querySelector('title').innerHTML = `${post.postTitle} - Bloggo`; 
 
-    // display its details
-    await displayPostDetails(post);
-    
-    console.log(document.querySelector(`.js-saves-count-${postId}`).innerHTML)
-    
+if (post) {
+  // If the post is found then
 
-    backButtonDirectory()
-    clickedLikesDislikes();
-    clickedSaved()
+  // update title with the post's title
+  document.querySelector('title').innerHTML = `${post.postTitle} - Bloggo`; 
 
-  } else {
-    // If no post is found with that ID, display an error or a 404 message
-    displayError()
-  }
-});
+  // display its details
+  await displayPostDetails(post);  
+
+  backButtonDirectory()
+  clickedLikesDislikes();
+  clickedSaved()
+
+} else {
+  // If no post is found with that ID, display an error or a 404 message
+  displayError()
+}

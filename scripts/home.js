@@ -3,8 +3,8 @@ import { postSetting } from "./post-settings.js";
 import { displayAllPosts } from "./utils/return-all-posts-HTML.js";
 import { addEventListenerForPostPreviewLinks } from "./utils/event-listeners-links-for-post-previews.js";
 import { scrollToTop } from "./utils/scroll-to-top-button.js";
-import { clickedLikesDislikes } from "./posts.js/like-dislike.js";
-import { clickedSaved } from "./posts.js/saves-post.js";
+import { clickedLikesDislikes } from "./posts/like-dislike.js";
+import { clickedSaved } from "./posts/saves-post.js";
 
 if(document.querySelector(".js-home-button-in-home")) {
   document.querySelector(".js-home-button-in-home")

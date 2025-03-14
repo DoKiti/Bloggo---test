@@ -84,11 +84,16 @@ async function fetchUsers() {
     }
     const usersFetched = await response.json();
     
-    // Log the data to verify it's fetched correctly
-    console.log(usersFetched);
     
     // You can now use `users` to display in your front-end
     usersFetched.forEach(userDetails => {
+      userDetails.userId = String(userDetails.userId)
+      userDetails.followingsIds = JSON.parse(userDetails.followingsIds)
+      userDetails.followersIds = JSON.parse(userDetails.followersIds)
+      userDetails.likedPostsIds = JSON.parse(userDetails.likedPostsIds)
+      userDetails.dislikedPostsIds = JSON.parse(userDetails.dislikedPostsIds)
+      userDetails.savedPostsIds = JSON.parse(userDetails.savedPostsIds)
+      userDetails.postsIds = JSON.parse(userDetails.postsIds)
       users.push(new User(userDetails));
     });
 
@@ -99,7 +104,3 @@ async function fetchUsers() {
 
 // Call the function to fetch users when the page loads
 await fetchUsers();
-
-
-await console.log('users:')
-console.log(users)

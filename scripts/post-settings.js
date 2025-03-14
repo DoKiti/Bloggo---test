@@ -1,7 +1,7 @@
 import { posts } from "../data/posts.js";
 import { user } from "../data/user.js";
 import { deletePost } from "./post-settings/delete-post.js";
-import { savedStuff } from "./posts.js/saves-post.js";
+import { savedStuff } from "./posts/saves-post.js";
 
 
 export function postSetting() {

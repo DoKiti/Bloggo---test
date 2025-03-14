@@ -1,6 +1,6 @@
 import { user } from "../../data/user.js";
 import { checkHasItNotBeenSaved } from "../post-settings/save-post-setting.js";
-import { checkDisliked, checkLiked } from "../posts.js/like-dislike.js";
+import { checkDisliked, checkLiked } from "../posts/like-dislike.js";
 import { displayingRatingsText } from "./display-ratings-text.js";
 
 

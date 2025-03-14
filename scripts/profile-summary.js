@@ -6,19 +6,23 @@ import { backButtonDirectory, whiteSpaceReload } from "./utils/back-button-href.
 import { followButton, checkFollowButton } from "./profile-summary/follow-button.js";
 import { renderUserFollowers } from "./profile-summary/user-followers.js";
 import { renderUserFollowings } from "./profile-summary/user-followings.js";
-import { clickedLikesDislikes } from "./posts.js/like-dislike.js";
-import { clickedSaved } from "./posts.js/saves-post.js";
+import { clickedLikesDislikes } from "./posts/like-dislike.js";
+import { clickedSaved } from "./posts/saves-post.js";
 
 backButtonDirectory()
 
-document.addEventListener('DOMContentLoaded', async () => {
+  console.log('DOMContentLoaded')
+
   const userId = getUserIdFromUrl(); // Get the postId from the URL
   const user = getUserById(userId); // Find the post by its ID
+  
+  console.log(user)
 
   if (user) {
     // If the post is found, display its details]
     await displayUserDetails(user);
     await checkFollowButton(userId)
+
     displayAccesories(user);
     displayAllUserPosts(user);
     followButton(userId);
@@ -49,5 +53,4 @@ document.addEventListener('DOMContentLoaded', async () => {
   } else {
     // If no post is found with that ID, display an error or a 404 message
     displayError()
-  }
-});
+  };

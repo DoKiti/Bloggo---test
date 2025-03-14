@@ -9,17 +9,47 @@ export class Post {
   authorProfilePicture;
   
   constructor(postId, postTitle, texts, ratings, authorId) {
-    const author = users.find((u) => u.userId === authorId); 
+    const author = users.find((u) => String(u.userId) === String(authorId));
 
     this.postId = postId;
     this.postTitle = postTitle;
     this.texts = texts;
     this.ratings = ratings;
     this.author = author;
-    this.authorProfilePicture = author.ProfilePicture;
+    this.authorProfilePicture = author.profilePicture;
   }
 }
 
+export let posts = [];
+
+async function fetchPosts() {
+  try {
+    const response = await fetch('http://localhost:3000/posts');
+    if (!response.ok) {
+      throw new Error('Failed to fetch posts');
+    }
+    const postsFetched = await response.json();
+
+    console.log(postsFetched)
+    
+    
+    // You can now use `users` to display in your front-end
+    postsFetched.forEach(postDetails => {
+      postDetails.authorId = String(postDetails.authorId);
+      posts.push(new Post(postDetails.postId, postDetails.postTitle, postDetails.texts, postDetails.ratings, postDetails.authorId));
+    });
+
+  } catch (error) {
+    console.error('Error fetching users:', error);
+  }
+}
+
+// Call the function to fetch posts when the page loads
+await fetchPosts();
+
+
+
+/*
 export let posts = JSON.parse(localStorage.getItem('posts')) || [
   {
     postId: "1740217540043-254",
@@ -31,7 +61,7 @@ export let posts = JSON.parse(localStorage.getItem('posts')) || [
       dislikes: 1,
       comments: 13
     }, 
-    authorId: '1',
+    authorId: 1,
   },
   {
     postId: "1740217626532-114",
@@ -43,7 +73,7 @@ export let posts = JSON.parse(localStorage.getItem('posts')) || [
       dislikes: 116,
       comments: 218
     },
-    authorId: '1',
+    authorId: 1,
   },  {
     postId: "1740217672202-142",
     postTitle: "wtv",
@@ -54,7 +84,7 @@ export let posts = JSON.parse(localStorage.getItem('posts')) || [
       dislikes: 1231,
       comments: 1526
     },
-    authorId: '2',
+    authorId: 2,
   }
 ].map((postDetails) => {
   return new Post(
@@ -65,7 +95,7 @@ export let posts = JSON.parse(localStorage.getItem('posts')) || [
     postDetails.authorId,
   );
 });
-
+*/
 
 /*
 export let postss = [];
@@ -84,3 +114,4 @@ export function loadPostsFetch() {
 }
 
 */
+
